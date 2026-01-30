@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { HashRouter as Router, Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useParams, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, 
   X, 
@@ -71,9 +71,16 @@ const Button: React.FC<{
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   
   const scrollToSection = (id: string) => {
     setIsOpen(false);
+    if (location.pathname !== '/') {
+      sessionStorage.setItem('bodhan-scroll-target', id);
+      navigate('/');
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -286,7 +293,7 @@ const VisionSection = () => {
 }
 
 const PrinciplesSection = () => {
-    const [openIndex, setOpenIndex] = useState<number>(0);
+    const [openIndex, setOpenIndex] = useState<number>(-1);
 
     return (
         <div id="principles" className="py-24 bg-dark-800">
@@ -494,10 +501,11 @@ const VerticalPage: React.FC = () => {
   const [selectedPriority, setSelectedPriority] = useState<Set<Priority>>(new Set());
   const [openAreas, setOpenAreas] = useState<Set<string>>(new Set());
 
-  // Initialize all areas as open
+  // Initialize with only the first area open
   useEffect(() => {
       if (vertical) {
-          setOpenAreas(new Set(vertical.problems.map(p => p.id)));
+          const firstProblemId = vertical.problems[0]?.id;
+          setOpenAreas(new Set(firstProblemId ? [firstProblemId] : []));
       }
   }, [vertical]);
 
@@ -658,10 +666,27 @@ const VerticalPage: React.FC = () => {
 };
 
 const ScrollToTop = () => {
-    const { pathname } = useLocation();
+    const { pathname, hash } = useLocation();
     useEffect(() => {
+        const storedTarget = sessionStorage.getItem('bodhan-scroll-target');
+        if (storedTarget) {
+            sessionStorage.removeItem('bodhan-scroll-target');
+            const element = document.getElementById(storedTarget);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+        }
+        if (hash) {
+            const targetId = hash.replace('#', '');
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+        }
         window.scrollTo(0, 0);
-    }, [pathname]);
+    }, [pathname, hash]);
     return null;
 };
 
