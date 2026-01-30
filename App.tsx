@@ -47,11 +47,11 @@ const Button: React.FC<{
   href?: string;
   className?: string;
 }> = ({ variant = 'primary', children, onClick, href, className = '' }) => {
-  const baseStyles = "inline-flex items-center justify-center px-8 py-3 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-900";
+  const baseStyles = "inline-flex items-center justify-center px-8 py-3 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-100";
   const variants = {
-    primary: "bg-bodhan-orange text-white hover:bg-orange-600 focus:ring-bodhan-orange",
-    secondary: "bg-dark-800 text-white hover:bg-dark-700 focus:ring-dark-700 border border-dark-700",
-    outline: "bg-transparent text-white border border-gray-600 hover:border-white focus:ring-white"
+    primary: "bg-charcoal-900 text-white hover:bg-charcoal-800 focus:ring-charcoal-800",
+    secondary: "bg-white text-gray-900 hover:bg-cream-200 focus:ring-gray-300 border border-gray-200",
+    outline: "bg-transparent text-gray-900 border border-gray-300 hover:border-gray-600 focus:ring-gray-400"
   };
 
   if (href) {
@@ -88,27 +88,27 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-dark-900/90 backdrop-blur-lg border-b border-white/5">
+    <header className="fixed w-full top-0 z-50 bg-cream-100/90 backdrop-blur-lg border-b border-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link to="/" className="flex flex-col">
               <span className="text-2xl font-serif text-bodhan-orange font-bold leading-none">बोधन</span>
-              <span className="text-[10px] tracking-[0.2em] text-gray-400 uppercase mt-1">Bodhan AI</span>
+              <span className="text-[10px] tracking-[0.2em] text-gray-600 uppercase mt-1">Bodhan AI</span>
             </Link>
           </div>
           
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <button onClick={() => scrollToSection('vision')} className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Vision</button>
-            <button onClick={() => scrollToSection('principles')} className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Principles</button>
-            <button onClick={() => scrollToSection('research')} className="text-gray-300 hover:text-white text-sm font-medium transition-colors">Research</button>
+            <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Vision</button>
+            <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Principles</button>
+            <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Research</button>
             <Button variant="primary" href="mailto:research@bodhan.ai" className="px-6 py-2">
               Join Us
             </Button>
           </div>
 
           <div className="flex items-center md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-400 hover:text-white p-2">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 hover:text-gray-900 p-2">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -117,11 +117,11 @@ const Header: React.FC = () => {
       
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-dark-900 border-b border-white/10 absolute w-full">
+        <div className="md:hidden bg-cream-100 border-b border-black/10 absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-4">
-             <button onClick={() => scrollToSection('vision')} className="block w-full text-left py-2 text-gray-300 hover:text-white">Vision</button>
-             <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-300 hover:text-white">Principles</button>
-             <button onClick={() => scrollToSection('research')} className="block w-full text-left py-2 text-gray-300 hover:text-white">Research</button>
+             <button onClick={() => scrollToSection('vision')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Vision</button>
+             <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Principles</button>
+             <button onClick={() => scrollToSection('research')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Research</button>
             <a href="mailto:research@bodhan.ai" className="block py-2 text-bodhan-orange font-bold">
               Join Research
             </a>
@@ -134,41 +134,41 @@ const Header: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-dark-900 border-t border-white/5 pt-20 pb-10">
+    <footer className="bg-cream-100 border-t border-black/10 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block mb-6">
                <span className="text-2xl font-serif text-bodhan-orange font-bold">बोधन</span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+            <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
               A semi-research organization building the Bharat EduAI Stack. 
               Solving open research problems to transform India's education ecosystem in alignment with NEP 2020.
             </p>
             <div className="mt-8">
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-400">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-black/5 border border-black/10 text-xs text-gray-600">
                     IIT Madras AI Centre of Excellence
                 </span>
             </div>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-6">Connect</h4>
-            <ul className="space-y-4 text-gray-400 text-sm">
+            <h4 className="text-gray-900 font-semibold mb-6">Connect</h4>
+            <ul className="space-y-4 text-gray-600 text-sm">
               <li><a href="#" className="hover:text-bodhan-orange transition-colors">Twitter</a></li>
               <li><a href="#" className="hover:text-bodhan-orange transition-colors">LinkedIn</a></li>
               <li><a href="mailto:contact@bodhan.ai" className="hover:text-bodhan-orange transition-colors">Contact</a></li>
             </ul>
           </div>
           <div>
-             <h4 className="text-white font-semibold mb-6">Initiatives</h4>
-             <ul className="space-y-4 text-gray-400 text-sm">
+             <h4 className="text-gray-900 font-semibold mb-6">Initiatives</h4>
+             <ul className="space-y-4 text-gray-600 text-sm">
                 <li>EduAI Stack</li>
                 <li>Research Grants</li>
                 <li>Fellowships</li>
              </ul>
           </div>
         </div>
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+        <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
           <p>&copy; {new Date().getFullYear()} Bodhan AI. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
              <span>Privacy Policy</span>
@@ -184,23 +184,24 @@ const Footer: React.FC = () => {
 
 const HeroSection = () => {
     return (
-        <div className="relative min-h-[90vh] flex items-center bg-dark-900 overflow-hidden">
+        <div className="relative min-h-[90vh] flex items-center bg-hero-warm overflow-hidden">
+            <div className="absolute inset-0 bg-hero-glow opacity-30"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
                     {/* Content */}
                     <div className="animate-fade-in">
-                         <div className="inline-block px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 text-xs font-medium mb-8">
+                         <div className="inline-block px-4 py-2 rounded-full border border-black/10 bg-black/5 text-gray-600 text-xs font-medium mb-8">
                             IIT Madras AI Centre of Excellence for Education
                         </div>
                         
-                        <h1 className="text-5xl md:text-7xl font-serif text-white leading-[1.1] mb-8">
+                        <h1 className="text-5xl md:text-7xl font-serif text-gray-900 leading-[1.1] mb-8">
                             Open Research <br />
                             <span className="text-bodhan-orange italic">Problems in</span> <br />
                             AI for Education
                         </h1>
                         
-                        <p className="text-lg text-gray-400 max-w-xl leading-relaxed mb-10 font-light">
+                        <p className="text-lg text-gray-600 max-w-xl leading-relaxed mb-10 font-light">
                             A comprehensive agenda of 200+ research problems across Speech, Language, Vision, and Learning technologies — designed to transform how Bharat learns, teaches, and thrives.
                         </p>
 
@@ -229,9 +230,9 @@ const HeroSection = () => {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="grid grid-cols-3 gap-6 transform rotate-[-15deg] scale-110">
                                 {/* Row 1 */}
-                                <div className="w-32 h-32 rounded-3xl bg-dark-800 opacity-50"></div>
+                                <div className="w-32 h-32 rounded-3xl bg-white opacity-50"></div>
                                 <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-orange-400 to-orange-600 shadow-2xl shadow-orange-500/20"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-dark-800 opacity-30"></div>
+                                <div className="w-32 h-32 rounded-3xl bg-white opacity-30"></div>
                                 
                                 {/* Row 2 */}
                                 <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-teal-400 to-teal-600 shadow-2xl shadow-teal-500/20"></div>
@@ -239,9 +240,9 @@ const HeroSection = () => {
                                 <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-teal-500 to-teal-700 shadow-2xl shadow-teal-500/20"></div>
                                 
                                 {/* Row 3 */}
-                                <div className="w-32 h-32 rounded-3xl bg-dark-800 opacity-30"></div>
+                                <div className="w-32 h-32 rounded-3xl bg-white opacity-30"></div>
                                 <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-orange-600 to-orange-800 shadow-2xl shadow-orange-500/20"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-dark-800 opacity-50"></div>
+                                <div className="w-32 h-32 rounded-3xl bg-white opacity-50"></div>
                             </div>
                         </div>
                     </div>
@@ -254,32 +255,32 @@ const HeroSection = () => {
 
 const VisionSection = () => {
     return (
-        <div id="vision" className="py-24 bg-dark-900 relative">
+        <div id="vision" className="py-24 bg-cream-100 relative">
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <span className="text-bodhan-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Our Vision</span>
-                    <h2 className="text-3xl md:text-5xl font-serif text-white max-w-4xl mx-auto leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-serif text-gray-900 max-w-4xl mx-auto leading-tight">
                         An AI Copilot for Every Learner, Teacher, and Policymaker
                     </h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-16">
                     {PILLARS.map((pillar, idx) => (
-                        <div key={idx} className="bg-dark-800/50 rounded-3xl p-10 border border-white/5 hover:border-bodhan-orange/30 transition-all duration-300">
-                             <div className="w-12 h-12 rounded-xl bg-dark-700 flex items-center justify-center mb-8 border border-white/10">
+                        <div key={idx} className="bg-white/70 rounded-3xl p-10 border border-black/10 hover:border-bodhan-orange/30 transition-all duration-300">
+                             <div className="w-12 h-12 rounded-xl bg-cream-200 flex items-center justify-center mb-8 border border-black/10">
                                 {idx === 0 ? <Layers className="text-bodhan-orange" /> : <Clock className="text-bodhan-orange" />}
                              </div>
-                             <h3 className="text-2xl font-serif text-white mb-6">{pillar.title}</h3>
-                             <p className="text-gray-400 leading-relaxed mb-6">
+                             <h3 className="text-2xl font-serif text-gray-900 mb-6">{pillar.title}</h3>
+                             <p className="text-gray-600 leading-relaxed mb-6">
                                 {pillar.description}
                              </p>
                         </div>
                     ))}
                 </div>
 
-                <div className="bg-dark-800 rounded-3xl p-10 md:p-16 border-l-4 border-bodhan-orange relative overflow-hidden">
+                <div className="bg-white rounded-3xl p-10 md:p-16 border-l-4 border-bodhan-orange relative overflow-hidden">
                     <div className="relative z-10 max-w-4xl mx-auto text-center">
-                        <p className="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
+                        <p className="text-xl md:text-2xl font-serif italic text-gray-900 leading-relaxed mb-6">
                             "This is not merely a technology initiative. It is a systemic transformation of how Bharat learns, teaches, evaluates, and builds digital capacity."
                         </p>
                         <p className="text-sm text-gray-500 tracking-wider uppercase">
@@ -296,19 +297,19 @@ const PrinciplesSection = () => {
     const [openIndex, setOpenIndex] = useState<number>(-1);
 
     return (
-        <div id="principles" className="py-24 bg-dark-800">
+        <div id="principles" className="py-24 bg-cream-200">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                      <span className="text-bodhan-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Research Philosophy</span>
-                     <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">The Commandments</h2>
-                     <p className="text-gray-400">The non-negotiable principles that guide every decision we make.</p>
+                     <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">The Commandments</h2>
+                     <p className="text-gray-600">The non-negotiable principles that guide every decision we make.</p>
                 </div>
 
                 <div className="space-y-4">
                     {PRINCIPLES.map((principle, idx) => (
                         <div 
                             key={principle.id} 
-                            className={`rounded-2xl transition-all duration-300 overflow-hidden ${openIndex === idx ? 'bg-dark-900 border border-white/10' : 'bg-transparent border-b border-white/5'}`}
+                            className={`rounded-2xl transition-all duration-300 overflow-hidden ${openIndex === idx ? 'bg-cream-100 border border-black/10' : 'bg-transparent border-b border-black/10'}`}
                         >
                             <button 
                                 onClick={() => setOpenIndex(idx === openIndex ? -1 : idx)}
@@ -318,18 +319,18 @@ const PrinciplesSection = () => {
                                     <span className={`text-xl font-serif ${openIndex === idx ? 'text-bodhan-teal' : 'text-gray-600'}`}>
                                         {principle.id}
                                     </span>
-                                    <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-white' : 'text-gray-400'}`}>
+                                    <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-gray-900' : 'text-gray-600'}`}>
                                         {principle.title}
                                     </h3>
                                 </div>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-bodhan-teal text-dark-900' : 'bg-dark-700 text-gray-500'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-bodhan-teal text-gray-900' : 'bg-cream-200 text-gray-500'}`}>
                                     {openIndex === idx ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                 </div>
                             </button>
                             
                             <div className={`transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
                                 <div className="px-6 pb-8 md:px-8 md:pb-8 pl-16 md:pl-20 border-l-2 border-bodhan-teal/50 ml-8 md:ml-10 mb-6">
-                                    <p className="text-gray-400 leading-relaxed">
+                                    <p className="text-gray-600 leading-relaxed">
                                         {principle.description}
                                     </p>
                                 </div>
@@ -350,11 +351,11 @@ const HomePage: React.FC = () => {
       <PrinciplesSection />
       
       {/* Research Agenda Grid */}
-      <div id="research" className="py-24 bg-dark-900">
+      <div id="research" className="py-24 bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-medium text-white mb-6">Explore Our Research Agenda</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            <h2 className="text-4xl font-serif font-medium text-gray-900 mb-6">Explore Our Research Agenda</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
               Select a research vertical to explore detailed problem statements and collaboration opportunities.
             </p>
           </div>
@@ -364,28 +365,28 @@ const HomePage: React.FC = () => {
               <Link 
                 key={vertical.id} 
                 to={`/vertical/${vertical.id}`}
-                className={`group bg-dark-800 rounded-2xl p-8 border border-white/5 transition-all duration-300 ${THEME_BG_HOVER[vertical.theme]} hover:-translate-y-1`}
+                className={`group bg-white rounded-2xl p-8 border border-black/10 transition-all duration-300 ${THEME_BG_HOVER[vertical.theme]} hover:-translate-y-1`}
               >
                 <div className="flex justify-between items-start mb-6">
                   <span className={`text-2xl font-serif font-bold ${THEME_COLORS[vertical.theme]}`}>
                     {vertical.shortTitle}
                   </span>
                   <div className="text-right">
-                    <span className="block text-2xl font-bold text-white">{vertical.problemCount}</span>
+                    <span className="block text-2xl font-bold text-gray-900">{vertical.problemCount}</span>
                     <span className="text-[10px] text-gray-500 uppercase tracking-wider">Problems</span>
                   </div>
                 </div>
                 
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
                   {vertical.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 h-14 line-clamp-2">
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 h-14 line-clamp-2">
                   {vertical.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2">
                   {vertical.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-dark-900 rounded-full text-xs text-gray-500 group-hover:text-gray-300 transition-colors">
+                    <span key={tag} className="px-3 py-1 bg-cream-100 rounded-full text-xs text-gray-500 group-hover:text-gray-700 transition-colors">
                       {tag}
                     </span>
                   ))}
@@ -415,37 +416,37 @@ const AreaAccordion: React.FC<{
     if (filteredOutcomes.length === 0) return null;
 
     return (
-        <div className="bg-dark-800 rounded-xl border border-white/5 overflow-hidden mb-4">
+        <div className="bg-white rounded-xl border border-black/10 overflow-hidden mb-4">
              <button 
                 onClick={onToggle}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-black/5 transition-colors"
              >
                 <div className="flex-1 pr-4">
                     <span className={`text-xs font-bold uppercase tracking-widest ${THEME_COLORS[verticalTheme]} mb-1 block`}>
                         Area {areaNum}
                     </span>
-                    <h3 className="text-xl font-serif font-medium text-white">{problem.title}</h3>
+                    <h3 className="text-xl font-serif font-medium text-gray-900">{problem.title}</h3>
                     <p className="text-sm text-gray-500 mt-2 line-clamp-1">{problem.description}</p>
                 </div>
                 <div className="flex items-center gap-4">
-                     <span className="text-sm font-bold text-white bg-white/10 px-3 py-1 rounded-full">
-                         {filteredOutcomes.length} <span className="text-[10px] text-gray-400 font-normal ml-1">PROBLEMS</span>
+                     <span className="text-sm font-bold text-gray-900 bg-black/10 px-3 py-1 rounded-full">
+                         {filteredOutcomes.length} <span className="text-[10px] text-gray-600 font-normal ml-1">PROBLEMS</span>
                      </span>
-                     <div className={`w-8 h-8 rounded-full bg-dark-900 flex items-center justify-center text-gray-400`}>
+                     <div className={`w-8 h-8 rounded-full bg-cream-100 flex items-center justify-center text-gray-600`}>
                         {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                      </div>
                 </div>
              </button>
 
              {isOpen && (
-                 <div className="p-6 pt-0 border-t border-white/5 bg-dark-800/50">
-                     <p className="text-gray-400 text-sm leading-relaxed mb-6 mt-4">
+                 <div className="p-6 pt-0 border-t border-black/10 bg-white/70">
+                     <p className="text-gray-600 text-sm leading-relaxed mb-6 mt-4">
                          {problem.description}
                      </p>
                      
                      <div className="space-y-4">
                          {filteredOutcomes.map((outcome) => (
-                             <div key={outcome.id} className="bg-dark-900 rounded-lg p-5 border border-white/5 flex flex-col md:flex-row gap-4 relative overflow-hidden group hover:border-white/10 transition-colors">
+                             <div key={outcome.id} className="bg-cream-100 rounded-lg p-5 border border-black/10 flex flex-col md:flex-row gap-4 relative overflow-hidden group hover:border-black/10 transition-colors">
                                  
                                  {/* ID Badge */}
                                  <div className="flex-shrink-0">
@@ -456,7 +457,7 @@ const AreaAccordion: React.FC<{
 
                                  <div className="flex-grow">
                                      <div className="flex justify-between items-start">
-                                         <h4 className="text-lg font-bold text-white mb-2">{outcome.title}</h4>
+                                         <h4 className="text-lg font-bold text-gray-900 mb-2">{outcome.title}</h4>
                                           <div className="flex gap-2">
                                             {outcome.priority === 'CRITICAL' && (
                                                 <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-red-500/20 text-red-400 border border-red-500/20">Critical</span>
@@ -469,16 +470,16 @@ const AreaAccordion: React.FC<{
                                             )}
                                         </div>
                                      </div>
-                                     <p className="text-gray-400 text-sm mb-4 leading-relaxed">{outcome.description}</p>
+                                     <p className="text-gray-600 text-sm mb-4 leading-relaxed">{outcome.description}</p>
                                      <div className="flex justify-between items-center">
                                          <div className="flex flex-wrap gap-2">
                                              {outcome.tags.map((tag: string) => (
-                                                 <span key={tag} className="px-2 py-1 bg-dark-800 rounded text-[10px] text-gray-500 border border-white/5">
+                                                 <span key={tag} className="px-2 py-1 bg-white rounded text-[10px] text-gray-500 border border-black/10">
                                                      {tag}
                                                  </span>
                                              ))}
                                          </div>
-                                         <Button variant="outline" href={`mailto:research@bodhan.ai?subject=${outcome.id}`} className="!py-1.5 !px-4 !text-xs !rounded-full group-hover:bg-white group-hover:text-dark-900 group-hover:border-white">
+                                         <Button variant="outline" href={`mailto:research@bodhan.ai?subject=${outcome.id}`} className="!py-1.5 !px-4 !text-xs !rounded-full group-hover:bg-white group-hover:text-gray-900 group-hover:border-black">
                                              Reach Out <ArrowRight size={10} className="ml-1" />
                                          </Button>
                                      </div>
@@ -554,7 +555,7 @@ const VerticalPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-900 pt-28 pb-20 animate-fade-in">
+    <div className="min-h-screen bg-cream-100 pt-28 pb-20 animate-fade-in">
        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs />
           
@@ -563,20 +564,20 @@ const VerticalPage: React.FC = () => {
                <span className={`text-5xl md:text-6xl font-serif font-bold ${THEME_COLORS[vertical.theme]}`}>
                  {vertical.problemCount}
                </span>
-               <div className="h-12 w-px bg-white/10"></div>
+               <div className="h-12 w-px bg-black/10"></div>
                <span className="text-xs md:text-sm tracking-widest uppercase text-gray-500">
                  Problems <br/> Found
                </span>
-               <div className="h-12 w-px bg-white/10 ml-4"></div>
+               <div className="h-12 w-px bg-black/10 ml-4"></div>
                <div className="flex gap-2">
                  {vertical.tags.map(t => (
-                     <span key={t} className="px-3 py-1 rounded bg-white/5 text-gray-400 text-xs border border-white/5 uppercase tracking-wide">
+                     <span key={t} className="px-3 py-1 rounded bg-black/5 text-gray-600 text-xs border border-black/10 uppercase tracking-wide">
                          {t}
                      </span>
                  ))}
                </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
                {vertical.title}
             </h1>
           </div>
@@ -594,7 +595,7 @@ const VerticalPage: React.FC = () => {
                               <li key={p.id}>
                                   <button 
                                     onClick={() => scrollToArea(p.id)}
-                                    className="text-sm text-gray-400 hover:text-bodhan-orange text-left leading-tight"
+                                    className="text-sm text-gray-600 hover:text-bodhan-orange text-left leading-tight"
                                   >
                                       {p.title} <span className="text-xs text-gray-600 ml-1">({p.outcomes.length})</span>
                                   </button>
@@ -612,8 +613,8 @@ const VerticalPage: React.FC = () => {
                                 key={p}
                                 onClick={() => togglePriority(p as Priority)}
                                 className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${selectedPriority.has(p as Priority) 
-                                    ? 'bg-bodhan-orange text-white border-bodhan-orange' 
-                                    : 'bg-dark-800 text-gray-400 border-white/10 hover:border-white/30'}`}
+                                    ? 'bg-bodhan-orange text-gray-900 border-bodhan-orange' 
+                                    : 'bg-white text-gray-600 border-black/10 hover:border-black/20'}`}
                               >
                                   {p}
                               </button>
@@ -630,8 +631,8 @@ const VerticalPage: React.FC = () => {
                                key={tag}
                                onClick={() => toggleTag(tag)}
                                className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${selectedTags.has(tag) 
-                                   ? 'bg-white text-dark-900 border-white' 
-                                   : 'bg-dark-800 text-gray-400 border-white/10 hover:border-white/30'}`}
+                                   ? 'bg-white text-gray-900 border-gray-200' 
+                                   : 'bg-white text-gray-600 border-black/10 hover:border-black/20'}`}
                              >
                                  {tag}
                              </button>
@@ -694,7 +695,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen font-sans text-gray-100 bg-dark-900">
+      <div className="flex flex-col min-h-screen font-sans text-gray-900 bg-cream-100">
         <Header />
         <main className="flex-grow">
           <Routes>

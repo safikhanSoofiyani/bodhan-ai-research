@@ -7,36 +7,58 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
-              serif: ['Merriweather', 'serif'],
+              serif: ['Syne', 'sans-serif'],
             },
             colors: {
+              cream: {
+                100: '#F8F6F1',
+                200: '#F1F0EE',
+                300: '#E7E2D8',
+              },
+              charcoal: {
+                900: '#0A0A0A',
+                800: '#171717',
+                700: '#242424',
+                600: '#262626',
+              },
               dark: {
-                900: '#050912', // Main background
-                800: '#0F1522', // Card background
-                700: '#1E293B', // Lighter border/bg
+                900: '#F8F6F1', // Main background
+                800: '#FFFFFF', // Card background
+                700: '#F1F0EE', // Lighter border/bg
               },
               bodhan: {
-                orange: '#FF5E1E',
-                teal: '#2DD4BF',
+                orange: '#FF6207',
+                teal: '#FAAF01',
                 purple: '#A78BFA',
-                yellow: '#FACC15',
-                blue: '#60A5FA',
-                red: '#F87171',
-                indigo: '#818CF8',
+                yellow: '#FAAF01',
+                blue: '#314685',
+                red: '#EA2027',
+                indigo: '#314685',
                 green: '#4ADE80',
               },
               gray: {
-                400: '#94A3B8',
-                300: '#CBD5E1',
-                100: '#F1F5F9',
+                900: '#111111',
+                800: '#171717',
+                700: '#242424',
+                600: '#262626',
+                500: '#4C4C4C',
+                400: '#525252',
+                300: '#737373',
+                200: '#A1A1A1',
+                100: '#F1F0EE',
               }
+            },
+            backgroundImage: {
+              'hero-warm': 'radial-gradient(90% 38% at 50% 100%, #F7E5C8 24%, #FFB700 100%)',
+              'hero-glow': 'radial-gradient(32% 25% at 50% 60.4%, #FAEACD 0%, #FAAF01 49.7%, #DE5900 100%)',
+              'cta-warm': 'conic-gradient(#FFCE8F 0deg, #E65C12 215deg, #FF1C1C 360deg)',
             },
             animation: {
               'fade-in': 'fadeIn 0.5s ease-out',
@@ -53,22 +75,22 @@
     </script>
     <style>
       body {
-        background-color: #050912;
-        color: #ffffff;
+        background-color: #F8F6F1;
+        color: #242424;
       }
       /* Custom Scrollbar for better dark mode look */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #050912; 
+        background: #F8F6F1; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #1E293B; 
+        background: #E7E2D8; 
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #334155; 
+        background: #D9D2C6; 
       }
     </style>
   <script type="importmap">
