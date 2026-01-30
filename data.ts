@@ -70,27 +70,27 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
       {
         id: "4.1.1",
         title: "Robust ASR for Children",
-        description: "Current ASR systems trained on adult speech perform poorly for children due to acoustic characteristics (pitch, formants) and pronunciation variability.",
+        description: "Current ASR systems trained on adult speech perform poorly for children due to acoustic characteristics (pitch, formants) and pronunciation variability. The goal is to build an ASR system that reduces WER gap vs adult ASR and generalizes across ages 5–12, regions and device types. This would have the following research outcomes resulting in large scale children voice datasets, benchmarks for evaluation, state of the art models for children’s speech recognition, and automatic assessment of oral reading and fluency:",
         outcomes: [
           {
             id: "O1",
             title: "Benchmark for Multilingual Child Speech",
-            description: "A comprehensive benchmark for child speech will be established to evaluate ASR and audio-LLM performance across Indian languages. The benchmark will include read-aloud, conversational, and spontaneous responses.",
-            tags: ["Speech Processing", "Dataset Curation", "Evaluation Metrics"],
+            description: "A comprehensive benchmark for child speech will be established to evaluate ASR and audio-LLM performance across Indian languages. The benchmark will include read-aloud, conversational, and spontaneous responses from children, allowing systematic measurement of accuracy gaps between adult-trained systems and child speech. It will also enable the study of techniques such as few-shot prompting for audio LLMs and synthetic child-speech augmentation to improve recognition accuracy. This benchmark will serve as the reference dataset for assessing child-speech robustness across all future models in the ecosystem.",
+            tags: ["Benchmark", "Evaluation"],
             priority: "CRITICAL"
           },
           {
             id: "O2",
             title: "Cross-Age and Cross-Language Generalization Study",
-            description: "A structured study examining how well ASR systems generalize across age groups and languages. The analysis will evaluate whether speech samples from older children can improve recognition accuracy for early readers.",
-            tags: ["Transfer Learning", "Multilingual NLP"],
+            description: "A structured study will examine how well ASR systems generalize across age groups and languages. The analysis will evaluate whether speech samples from older children can improve recognition accuracy for early readers and whether models trained on a subset of languages can transfer effectively to others. The study will compare conventional ASR models with newer audio LLMs to quantify gains in transferability. Outcomes from this work will directly inform data-collection priorities and model-design strategies for coverage across all 22 languages.",
+            tags: ["Transfer Learning", "Cross-Lingual"],
             priority: "HIGH"
           },
           {
             id: "O3",
-            title: "Large-Scale Child-Speech Corpus",
-            description: "A large-scale child-speech corpus covering all 22 Indian languages with broad demographic diversity. Includes structured reading and free-form speech with verbatim transcripts.",
-            tags: ["Data Collection", "ASR Training"],
+            title: "A large scale multilingual child-speech corpus and Verbatim ASR model",
+            description: "A large-scale child-speech corpus will be created, covering all 22 Indian languages with broad demographic, dialectal, and age diversity. The dataset will include both structured reading tasks and free-form speech, with verbatim transcripts that preserve disfluencies essential for downstream reading-fluency evaluation. Distinguishing between a stutter, a correction (reading 'the' then fixing to 'that'), and a sounding-out attempt (d-d-dog). Standard ASR often deletes these disfluencies to 'clean up' the transcript, but for ORF assessment, these are the most important data points. Models trained on this corpus will be benchmarked against the datasets from Outcomes 1 and 2 to demonstrate improvements in robustness, accuracy, and literal transcription quality. The resulting ASR system will serve as the core speech-recognition backbone for ORF assessment and multilingual learning applications.",
+            tags: ["Data Collection"],
             priority: "CRITICAL"
           }
         ]
@@ -98,26 +98,26 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
       {
         id: "4.1.2",
         title: "Expanding ASR to Indian Dialects",
-        description: "Addressing regional pronunciation patterns, lexical variants, and prosodic differences that lead to significant disparities in recognition accuracy.",
+        description: "Current ASR systems trained on standardized language norms struggle with the rich dialectal and accent diversity found across India. Regional pronunciation patterns, lexical variants, and prosodic differences lead to significant disparities in recognition accuracy and can undermine fairness in educational applications. The goal is to build ASR and LLM-driven systems that perform equitably across dialects of Hindi and other major Indian languages, as well as across Indian-English accents spanning urban, rural, and region-specific varieties. This effort will produce dialect-balanced benchmarks, large-scale dialectal speech corpora, state-of-the-art dialect-aware ASR models, and evaluation frameworks that measure semantic robustness, task success, and explanation quality under dialect and accent variation. ",
         outcomes: [
           {
             id: "O9",
             title: "Benchmarking ASR Performance on Hindi Dialects",
-            description: "Evaluating performance of existing ASR and audio-LLM models on five major Hindi dialects using regionally representative speech samples.",
-            tags: ["Dialects", "Benchmarking", "Hindi"],
+            description: "A dedicated benchmark will be created to evaluate the performance of existing ASR and audio-LLM models on five major Hindi dialects. The benchmark will include regionally representative speech samples covering diverse acoustic and lexical variations. It will enable systematic comparison of current systems, highlighting dialect-specific error patterns and identifying gaps in accent coverage. Are frontier models already good at handling dialects (inherently or with few shot prompting)? This outcome will provide a reliable reference for assessing fairness, robustness, and inclusivity of speech technologies in the Hindi belt.",
+            tags: ["Dialects", "Benchmark", "Evaluation"],
             priority: "HIGH"
           },
           {
             id: "O10",
             title: "Multilingual Dialect Benchmark",
-            description: "Comprehensive benchmarking suite for 4–5 dialects each of the top five Indian languages.",
+            description: "A comprehensive benchmarking suite will be developed for 4–5 dialects each of the top five Indian languages. The benchmark will capture major regional variations within each language and provide a unified platform for evaluating standalone ASR systems and audio LLMs. Analyses will focus on how dialect variability affects recognition accuracy and on identifying dialects that are systematically underserved. Are frontier models already good at handling dialects (inherently or with few shot prompting)? The resulting dataset and evaluation protocols will support the design of more equitable and accent-robust ASR models.",
             tags: ["Multilingual", "Dialects", "Evaluation"],
             priority: "MEDIUM"
           },
           {
             id: "O11",
             title: "Large-Scale Dialectal Data Collection",
-            description: "Targeting 250–500 hours of speech per dialect for at least 15 underrepresented Hindi dialects.",
+            description: "A large-scale data collection initiative will be undertaken for at least 15 underrepresented Hindi dialects, targeting 250–500 hours of speech per dialect. The resulting corpus will support the development of state-of-the-art dialect-aware ASR models and enable detailed studies on cross-dialect generalization. Experiments will also examine whether dialect-specific data improves recognition performance in the mainstream parent language and explore synthetic augmentation methods using few-sample voice models. This outcome will significantly expand ASR coverage to linguistically diverse communities.",
             tags: ["Data Collection", "Low Resource"],
             priority: "HIGH"
           }
