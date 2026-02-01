@@ -177,8 +177,10 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="Bodhan AI" className="h-10 w-10 object-contain" />
-              <span className="text-[18px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
+              <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="bodhan.ai" className="h-10 w-10 object-contain" />
+              <span className="text-[22px] tracking-[0.12em] text-gray-800 lowercase">
+                bodhan<span className="text-bodhan-orange">.ai</span>
+              </span>
             </Link>
           </div>
           
@@ -223,8 +225,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-6">
-               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="Bodhan AI" className="h-12 w-12 object-contain" />
-               <span className="text-[15px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
+               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="bodhan.ai" className="h-12 w-12 object-contain" />
+               <span className="text-[22px] tracking-[0.12em] text-gray-800 lowercase">
+                 bodhan<span className="text-bodhan-orange">.ai</span>
+               </span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
               A semi-research organization building the Bharat EduAI Stack. 
@@ -254,7 +258,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Bodhan AI. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} bodhan<span className="text-bodhan-orange">.ai</span>. All rights reserved.
+          </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
              <span>Privacy Policy</span>
              <span>Terms of Service</span>
@@ -290,22 +296,22 @@ const HeroSection = () => {
                             A comprehensive agenda of 200+ research problems across Speech, Language, Vision, and Learning technologies — designed to transform how Bharat learns, teaches, and thrives.
                         </p>
 
-                        <div className="grid grid-cols-3 gap-8 mb-12 max-w-lg">
-                            <div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 mb-12 max-w-xl sm:mx-0 lg:ml-auto">
+                            <div className="text-center">
                                 <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">200+</div>
-                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium">Research Problems</div>
+                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium sm:whitespace-nowrap">Research Problems</div>
                             </div>
-                            <div>
+                            <div className="text-center">
                                 <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">22</div>
-                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium">Indian Languages</div>
+                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium sm:whitespace-nowrap">Indian Languages</div>
                             </div>
-                            <div>
+                            <div className="text-center">
                                 <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">8</div>
-                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium">Research Verticals</div>
+                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium sm:whitespace-nowrap">Research Verticals</div>
                             </div>
                         </div>
 
-                         <Button href="#research" className="group">
+                         <Button href="#research" className="group w-full sm:w-auto">
                             Explore Problems <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </div>
@@ -342,10 +348,10 @@ const VisionSection = () => {
                     {PILLARS.map((pillar, idx) => (
                         <div key={idx} className="bg-charcoal-800/80 rounded-3xl p-10 border border-white/10 hover:border-bodhan-orange/40 transition-all duration-300">
                              <div className="w-12 h-12 rounded-xl bg-charcoal-700 flex items-center justify-center mb-8 border border-white/10">
-                                {idx === 0 ? <Layers className="text-bodhan-orange" /> : <Clock className="text-bodhan-orange" />}
+                                {idx === 0 ? <Layers className="text-bodhan-orange w-8 h-8" /> : <Clock className="text-bodhan-orange w-8 h-8" />}
                              </div>
                              <h3 className="text-2xl font-serif text-white mb-6">{pillar.title}</h3>
-                             <p className="text-gray-300 leading-relaxed mb-6">
+                             <p className="text-gray-200 leading-relaxed mb-6">
                                 {pillar.description}
                              </p>
                         </div>
@@ -376,7 +382,7 @@ const PrinciplesSection = () => {
                 <div className="text-center mb-16">
                      <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Research Philosophy</span>
                      <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">The Sutras</h2>
-                     <p className="text-gray-300">The non-negotiable principles that guide every decision we make.</p>
+                     <p className="text-gray-200 text-lg">The non-negotiable principles that guide every decision we make.</p>
                 </div>
 
                 <div className="space-y-4">
@@ -431,7 +437,7 @@ const GrandChallengesSection = () => {
                         Our Moonshots
                     </span> */}
                     <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">Grand Challenges</h2>
-                    <p className="text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-gray-600 max-w-3xl mx-auto text-lg">
                         Problems we want to tackle that push the limits of what’s possible. These are our high-risk, high-impact
                         research bets.
                     </p>
@@ -491,12 +497,12 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-serif font-medium text-gray-900 mb-6">Explore Our Research Agenda</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-lg">
               Select a research vertical to explore detailed problem statements and collaboration opportunities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {RESEARCH_VERTICALS.map((vertical) => (
               <Link 
                 key={vertical.id} 

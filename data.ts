@@ -26,33 +26,53 @@ export const PILLARS: Pillar[] = [
 export const PRINCIPLES: Principle[] = [
   {
     id: "01",
-    title: '"Thou shalt not pretrain"',
-    description: "Language coverage is not optional — it is foundational. Any model that claims to serve India must represent the full linguistic diversity of the nation from the ground up. A model trained primarily on Hindi and English, with other languages as afterthoughts, will perpetuate existing inequities. We commit to balanced, representative pre-training corpora that give every language its rightful place."
+    title: '"The Principle of Avoiding Pretraining"',
+    description: "We will not pursue large-scale pretraining from scratch. This is computationally expensive, environmentally costly, and increasingly unnecessary given the availability of strong sovereign and open foundation models. We will instead focus on intelligent mid-training and post-training to specialise models for educational, multilingual, and deployment-specific needs."
   },
   {
     id: "02",
-    title: '"Thou shalt not ship without testing on children\'s voices"',
-    description: "Standard ASR and NLP models fail disproportionately for children. We mandate that every speech and language tool be rigorously evaluated on diverse child-speech datasets across ages and dialects before deployment."
+    title: '"The Principle of Language Expansion"',
+    description: "We will prioritise expanding AI capabilities across Indian languages, dialects, accents, and code-mixed usage. The primary barrier to equitable AI access in India is linguistic coverage, not model capability in high-resource languages. Our research will therefore focus on translation, speech, localisation, and fairness across linguistic communities."
   },
   {
     id: "03",
-    title: '"Thou shalt not optimize for benchmarks alone"',
-    description: "Real-world educational impact matters more than leaderboard scores. We prioritize metrics that reflect pedagogical efficacy, latency on low-end devices, and resilience to noise over pure academic accuracy."
+    title: '"The Principle of Reliable Evaluation"',
+    description: "We will develop and rely on robust, transparent, and reproducible evaluation metrics and benchmarks. Educational impact cannot be measured using surface-level accuracy metrics alone. Our evaluations will reflect real-world conditions such as children’s speech, classroom noise, low-end devices, and multilingual usage."
   },
   {
     id: "04",
-    title: '"Thou shalt not build without offline-first architecture"',
-    description: "Connectivity in Bharat is intermittent. Our solutions are designed to function robustly in low-bandwidth or completely offline environments, ensuring access is never compromised by infrastructure gaps."
+    title: '"The Principle of Real-World Grounding"',
+    description: "We will select research problems that are directly motivated by real challenges faced by learners, teachers, administrators, or policymakers. Research disconnected from deployment realities rarely translates into meaningful impact. Grounding ensures that scientific progress leads to measurable improvements in educational outcomes."
   },
   {
     id: "05",
-    title: '"Thou shalt not deploy without guardrails for children"',
-    description: "Safety is paramount. We implement strict, multi-layered guardrails to filter harmful content, prevent bias, and ensure age-appropriate interactions for every learner."
+    title: '"The Principle of Inclusion by Design"',
+    description: "We will design systems, datasets, and evaluations to be equitable across language, region, socio-economic context, and ability from the outset. Bias and exclusion often arise when inclusion is treated as a post-hoc concern. Designing for diversity early ensures fairness, robustness, and broader adoption."
   },
   {
     id: "06",
-    title: '"Thou shalt not hide behind proprietary walls"',
-    description: "We believe in open science for public good. Wherever possible, we release our datasets, benchmarks, and research findings to the community to accelerate the collective progress of AI for Education."
+    title: '"The Principle of Deployment Constraints as First-Class Variables"',
+    description: "We will account for real deployment constraints such as low-end devices, intermittent connectivity, latency, and energy efficiency. Educational systems in India operate under diverse and often constrained infrastructure conditions. Research that ignores these constraints cannot scale reliably or equitably."
+  },
+  {
+    id: "07",
+    title: '"The Principle of Impact Beyond Model Accuracy"',
+    description: "We will measure research success beyond model accuracy alone. Educational impact must be defined in terms of learning gains, fairness, robustness, usability, and reductions in teacher or administrative effort. This is necessary because high accuracy does not automatically translate into better learning or meaningful classroom outcomes."
+  },
+  {
+    id: "08",
+    title: '"The Principle of Longevity Over Demos"',
+    description: "We will build research outputs intended for long-term use rather than short-lived demonstrations. Educational systems must be maintainable, extensible, and operable at national scale over multiple years. This is essential because public education infrastructure values reliability and continuity over novelty."
+  },
+  {
+    id: "09",
+    title: '"The Principle of Child Safety, Dignity, and Trust"',
+    description: "We will design all learner-facing systems with children as the primary users. Educational AI operates in high-trust, high-stakes environments where emotional safety, age-appropriate behaviour, privacy, and fairness are critical. Protecting child dignity and trust is essential for responsible deployment and long-term adoption in public education systems."
+  },
+  {
+    id: "10",
+    title: '"The Principle of Open and Transparent Development"',
+    description: "We will build and release our models, datasets, benchmarks, and tools as open-source wherever possible. Openness enables reproducibility, independent scrutiny, and collective improvement across the research and education ecosystem. This is essential for public trust, long-term sustainability, and broad adoption by states, institutions, and partners."
   }
 ];
 
@@ -96,7 +116,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     id: "asr",
     title: "Automatic Speech Recognition",
     shortTitle: "ASR",
-    description: "Building robust speech recognition systems for Indian languages, dialects, children's voices, and noisy classroom environments.",
+    description: "Building robust speech recognition systems for Indian languages, and children's voices.",
     iconName: "Mic",
     theme: 'orange',
     problemCount: 35,
