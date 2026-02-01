@@ -40,6 +40,42 @@ const THEME_BG_HOVER: Record<VerticalTheme, string> = {
 
 // --- Components ---
 
+// const Button: React.FC<{
+//   variant?: 'primary' | 'secondary' | 'outline';
+//   children: React.ReactNode;
+//   onClick?: () => void;
+//   href?: string;
+//   className?: string;
+// }> = ({ variant = 'primary', children, onClick, href, className = '' }) => {
+//   const baseStyles = "relative inline-flex items-center justify-center gap-2 px-8 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-100 overflow-hidden whitespace-nowrap";
+//   const variants = {
+//     primary: "text-white bg-gradient-to-b from-charcoal-700 to-charcoal-900 focus:ring-charcoal-800",
+//     secondary: "text-white bg-gradient-to-b from-charcoal-700 to-charcoal-900 focus:ring-charcoal-800",
+//     outline: "text-gray-900 bg-gradient-to-b from-charcoal-300 to-charcoal-500 focus:ring-gray-400"
+//   };
+//   const innerBg = {
+//     primary: "bg-charcoal-800",
+//     secondary: "bg-charcoal-800",
+//     outline: "bg-cream-100"
+//   };
+
+//   if (href) {
+//     return (
+//       <a href={href} className={`${baseStyles} ${variants[variant]} ${className}`}>
+//         <span className={`absolute inset-[1px] rounded-[7px] ${innerBg[variant]}`} />
+//         <span className="relative z-10">{children}</span>
+//       </a>
+//     );
+//   }
+
+//   return (
+//     <button onClick={onClick} className={`${baseStyles} ${variants[variant]} ${className}`}>
+//       <span className={`absolute inset-[1px] rounded-[7px] ${innerBg[variant]}`} />
+//       <span className="relative z-10">{children}</span>
+//     </button>
+//   );
+// };
+
 const Button: React.FC<{
   variant?: 'primary' | 'secondary' | 'outline';
   children: React.ReactNode;
@@ -47,24 +83,42 @@ const Button: React.FC<{
   href?: string;
   className?: string;
 }> = ({ variant = 'primary', children, onClick, href, className = '' }) => {
-  const baseStyles = "inline-flex items-center justify-center px-8 py-3 text-sm font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-100";
+  // Added 'whitespace-nowrap' and 'flex-shrink-0'
+  const baseStyles = "relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden whitespace-nowrap flex-shrink-0";
+  
   const variants = {
-    primary: "bg-charcoal-900 text-white hover:bg-charcoal-800 focus:ring-charcoal-800",
-    secondary: "bg-white text-gray-900 hover:bg-cream-200 focus:ring-gray-300 border border-gray-200",
-    outline: "bg-transparent text-gray-900 border border-gray-300 hover:border-gray-600 focus:ring-gray-400"
+    primary: "text-white bg-charcoal-900 focus:ring-charcoal-800",
+    secondary: "text-white bg-charcoal-900 focus:ring-charcoal-800",
+    outline: "text-gray-900 bg-charcoal-300 focus:ring-gray-400"
   };
+
+  const innerBg = {
+    primary: "bg-charcoal-800",
+    secondary: "bg-charcoal-800",
+    outline: "bg-cream-100"
+  };
+
+  const content = (
+    <>
+      <span className={`absolute inset-[1px] rounded-[7px] ${innerBg[variant]}`} />
+      {/* Added flex and items-center here to force horizontal alignment */}
+      <span className="relative z-10 flex items-center justify-center">
+        {children}
+      </span>
+    </>
+  );
 
   if (href) {
     return (
       <a href={href} className={`${baseStyles} ${variants[variant]} ${className}`}>
-        {children}
+        {content}
       </a>
     );
   }
 
   return (
     <button onClick={onClick} className={`${baseStyles} ${variants[variant]} ${className}`}>
-      {children}
+      {content}
     </button>
   );
 };
@@ -92,9 +146,9 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex flex-col">
-              <span className="text-2xl font-serif text-bodhan-orange font-bold leading-none">बोधन</span>
-              <span className="text-[10px] tracking-[0.2em] text-gray-600 uppercase mt-1">Bodhan AI</span>
+            <Link to="/" className="flex items-center gap-3">
+              <img src="artifacts/logo.png" alt="Bodhan AI" className="h-10 w-10 object-contain" />
+              <span className="text-[15px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
             </Link>
           </div>
           
@@ -138,8 +192,9 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="inline-block mb-6">
-               <span className="text-2xl font-serif text-bodhan-orange font-bold">बोधन</span>
+            <Link to="/" className="inline-flex items-center gap-3 mb-6">
+               <img src="artifacts/logo.png" alt="Bodhan AI" className="h-12 w-12 object-contain" />
+               <span className="text-[10px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
               A semi-research organization building the Bharat EduAI Stack. 
@@ -184,14 +239,14 @@ const Footer: React.FC = () => {
 
 const HeroSection = () => {
     return (
-        <div className="relative min-h-[90vh] flex items-center bg-hero-warm overflow-hidden">
-            <div className="absolute inset-0 bg-hero-glow opacity-30"></div>
+        <div className="relative min-h-[90vh] flex items-center bg-cream-100 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-b from-cream-100 via-cream-100 to-[#F3E6D6] opacity-70"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
                     {/* Content */}
                     <div className="animate-fade-in">
-                         <div className="inline-block px-4 py-2 rounded-full border border-black/10 bg-black/5 text-gray-600 text-xs font-medium mb-8">
+                         <div className="inline-block px-4 py-2 rounded-full border border-black/10 bg-black/5 text-gray-600 text-base font-medium mb-8">
                             IIT Madras AI Centre of Excellence for Education
                         </div>
                         
@@ -207,16 +262,16 @@ const HeroSection = () => {
 
                         <div className="grid grid-cols-3 gap-8 mb-12 max-w-lg">
                             <div>
-                                <div className="text-3xl text-bodhan-orange font-serif font-bold mb-1">200+</div>
-                                <div className="text-[10px] text-gray-500 tracking-wider uppercase font-medium">Research Problems</div>
+                                <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">200+</div>
+                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium">Research Problems</div>
                             </div>
                             <div>
-                                <div className="text-3xl text-bodhan-orange font-serif font-bold mb-1">22</div>
-                                <div className="text-[10px] text-gray-500 tracking-wider uppercase font-medium">Indian Languages</div>
+                                <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">22</div>
+                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium">Indian Languages</div>
                             </div>
                             <div>
-                                <div className="text-3xl text-bodhan-orange font-serif font-bold mb-1">8</div>
-                                <div className="text-[10px] text-gray-500 tracking-wider uppercase font-medium">Research Verticals</div>
+                                <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">8</div>
+                                <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium">Research Verticals</div>
                             </div>
                         </div>
 
@@ -228,22 +283,11 @@ const HeroSection = () => {
                     {/* Abstract Graphic */}
                     <div className="hidden lg:block relative h-[500px] w-full">
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="grid grid-cols-3 gap-6 transform rotate-[-15deg] scale-110">
-                                {/* Row 1 */}
-                                <div className="w-32 h-32 rounded-3xl bg-white opacity-50"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-orange-400 to-orange-600 shadow-2xl shadow-orange-500/20"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-white opacity-30"></div>
-                                
-                                {/* Row 2 */}
-                                <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-teal-400 to-teal-600 shadow-2xl shadow-teal-500/20"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-orange-500 to-orange-700 shadow-2xl shadow-orange-500/20"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-teal-500 to-teal-700 shadow-2xl shadow-teal-500/20"></div>
-                                
-                                {/* Row 3 */}
-                                <div className="w-32 h-32 rounded-3xl bg-white opacity-30"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-orange-600 to-orange-800 shadow-2xl shadow-orange-500/20"></div>
-                                <div className="w-32 h-32 rounded-3xl bg-white opacity-50"></div>
-                            </div>
+                            <img
+                                src="artifacts/logo.png"
+                                alt="Bodhan Leaf"
+                                className="w-[580px] h-[580px] object-contain drop-shadow-[0_20px_60px_rgba(255,98,7,0.25)]"
+                            />
                         </div>
                     </div>
 
@@ -255,35 +299,35 @@ const HeroSection = () => {
 
 const VisionSection = () => {
     return (
-        <div id="vision" className="py-24 bg-cream-100 relative">
+        <div id="vision" className="py-24 bg-charcoal-900 relative text-white">
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <span className="text-bodhan-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Our Vision</span>
-                    <h2 className="text-3xl md:text-5xl font-serif text-gray-900 max-w-4xl mx-auto leading-tight">
+                    <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Our Vision</span>
+                    <h2 className="text-3xl md:text-4xl font-serif text-white max-w-4xl mx-auto leading-tight">
                         An AI Copilot for Every Learner, Teacher, and Policymaker
                     </h2>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-16">
                     {PILLARS.map((pillar, idx) => (
-                        <div key={idx} className="bg-white/70 rounded-3xl p-10 border border-black/10 hover:border-bodhan-orange/30 transition-all duration-300">
-                             <div className="w-12 h-12 rounded-xl bg-cream-200 flex items-center justify-center mb-8 border border-black/10">
+                        <div key={idx} className="bg-charcoal-800/80 rounded-3xl p-10 border border-white/10 hover:border-bodhan-orange/40 transition-all duration-300">
+                             <div className="w-12 h-12 rounded-xl bg-charcoal-700 flex items-center justify-center mb-8 border border-white/10">
                                 {idx === 0 ? <Layers className="text-bodhan-orange" /> : <Clock className="text-bodhan-orange" />}
                              </div>
-                             <h3 className="text-2xl font-serif text-gray-900 mb-6">{pillar.title}</h3>
-                             <p className="text-gray-600 leading-relaxed mb-6">
+                             <h3 className="text-2xl font-serif text-white mb-6">{pillar.title}</h3>
+                             <p className="text-gray-300 leading-relaxed mb-6">
                                 {pillar.description}
                              </p>
                         </div>
                     ))}
                 </div>
 
-                <div className="bg-white rounded-3xl p-10 md:p-16 border-l-4 border-bodhan-orange relative overflow-hidden">
+                <div className="bg-charcoal-800 rounded-3xl p-10 md:p-16 border-l-4 border-bodhan-orange relative overflow-hidden">
                     <div className="relative z-10 max-w-4xl mx-auto text-center">
-                        <p className="text-xl md:text-2xl font-serif italic text-gray-900 leading-relaxed mb-6">
+                        <p className="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
                             "This is not merely a technology initiative. It is a systemic transformation of how Bharat learns, teaches, evaluates, and builds digital capacity."
                         </p>
-                        <p className="text-sm text-gray-500 tracking-wider uppercase">
+                        <p className="text-sm text-gray-400 tracking-wider uppercase">
                             — Aligned with NEP 2020 and Viksit Bharat @2047
                         </p>
                     </div>
@@ -297,40 +341,40 @@ const PrinciplesSection = () => {
     const [openIndex, setOpenIndex] = useState<number>(-1);
 
     return (
-        <div id="principles" className="py-24 bg-cream-200">
+        <div id="principles" className="py-24 bg-charcoal-900 text-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                     <span className="text-bodhan-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Research Philosophy</span>
-                     <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">The Commandments</h2>
-                     <p className="text-gray-600">The non-negotiable principles that guide every decision we make.</p>
+                     <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Research Philosophy</span>
+                     <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">The Sutras</h2>
+                     <p className="text-gray-300">The non-negotiable principles that guide every decision we make.</p>
                 </div>
 
                 <div className="space-y-4">
                     {PRINCIPLES.map((principle, idx) => (
                         <div 
                             key={principle.id} 
-                            className={`rounded-2xl transition-all duration-300 overflow-hidden ${openIndex === idx ? 'bg-cream-100 border border-black/10' : 'bg-transparent border-b border-black/10'}`}
+                            className={`rounded-2xl transition-all duration-300 overflow-hidden ${openIndex === idx ? 'bg-charcoal-800 border border-white/10' : 'bg-transparent border-b border-white/10'}`}
                         >
                             <button 
                                 onClick={() => setOpenIndex(idx === openIndex ? -1 : idx)}
                                 className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                             >
                                 <div className="flex items-center gap-6">
-                                    <span className={`text-xl font-serif ${openIndex === idx ? 'text-bodhan-teal' : 'text-gray-600'}`}>
+                                    <span className={`text-xl font-serif ${openIndex === idx ? 'text-bodhan-orange' : 'text-white'}`}>
                                         {principle.id}
                                     </span>
-                                    <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-gray-900' : 'text-gray-600'}`}>
+                                    <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-white' : 'text-white'}`}>
                                         {principle.title}
                                     </h3>
                                 </div>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-bodhan-teal text-gray-900' : 'bg-cream-200 text-gray-500'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-bodhan-orange text-gray-900' : 'bg-charcoal-700 text-gray-400'}`}>
                                     {openIndex === idx ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                 </div>
                             </button>
                             
                             <div className={`transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
                                 <div className="px-6 pb-8 md:px-8 md:pb-8 pl-16 md:pl-20 border-l-2 border-bodhan-teal/50 ml-8 md:ml-10 mb-6">
-                                    <p className="text-gray-600 leading-relaxed">
+                                    <p className="text-white leading-relaxed">
                                         {principle.description}
                                     </p>
                                 </div>
@@ -347,8 +391,13 @@ const HomePage: React.FC = () => {
   return (
     <div className="animate-fade-in pt-20">
       <HeroSection />
-      <VisionSection />
-      <PrinciplesSection />
+      <div className="relative">
+        {/* <div className="pointer-events-none absolute -top-20 left-0 right-0 h-40 bg-gradient-to-b from-cream-100 via-[#F2E1C7] to-charcoal-900 transition-opacity duration-700" /> */}
+        <VisionSection />
+        <PrinciplesSection />
+        {/* <div className="pointer-events-none absolute -bottom-20 left-0 right-0 h-40 bg-gradient-to-b from-charcoal-900 via-[#2A1A10] to-cream-100 transition-opacity duration-700" /> */}
+        {/* <div className="pointer-events-none absolute -top-20 left-0 right-0 h-40 bg-gradient-to-b from-cream-100 via-[#F2E1C7] to-charcoal-900 transition-opacity duration-700" /> */}
+      </div>
       
       {/* Research Agenda Grid */}
       <div id="research" className="py-24 bg-cream-100">
@@ -612,7 +661,7 @@ const VerticalPage: React.FC = () => {
                               <button
                                 key={p}
                                 onClick={() => togglePriority(p as Priority)}
-                                className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${selectedPriority.has(p as Priority) 
+                                className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all ${selectedPriority.has(p as Priority) 
                                     ? 'bg-bodhan-orange text-gray-900 border-bodhan-orange' 
                                     : 'bg-white text-gray-600 border-black/10 hover:border-black/20'}`}
                               >
@@ -630,7 +679,7 @@ const VerticalPage: React.FC = () => {
                                <button
                                key={tag}
                                onClick={() => toggleTag(tag)}
-                               className={`px-3 py-1.5 rounded text-xs font-medium border transition-all ${selectedTags.has(tag) 
+                               className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all ${selectedTags.has(tag) 
                                    ? 'bg-white text-gray-900 border-gray-200' 
                                    : 'bg-white text-gray-600 border-black/10 hover:border-black/20'}`}
                              >
