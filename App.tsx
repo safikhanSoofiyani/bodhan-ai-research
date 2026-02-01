@@ -147,7 +147,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img src="artifacts/logo.png" alt="Bodhan AI" className="h-10 w-10 object-contain" />
+              <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="Bodhan AI" className="h-10 w-10 object-contain" />
               <span className="text-[15px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
             </Link>
           </div>
@@ -193,7 +193,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-6">
-               <img src="artifacts/logo.png" alt="Bodhan AI" className="h-12 w-12 object-contain" />
+               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="Bodhan AI" className="h-12 w-12 object-contain" />
                <span className="text-[10px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
