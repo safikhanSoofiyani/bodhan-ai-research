@@ -39,7 +39,7 @@ export const Breadcrumbs: React.FC = () => {
           <React.Fragment key={to}>
             <ChevronRight size={16} className="mx-2 text-gray-600 flex-shrink-0" />
             {isLast ? (
-              <span className="font-semibold text-white">{displayName}</span>
+              <span className="font-semibold text-gray-900">{displayName}</span>
             ) : (
               <Link to={to} className="hover:text-bodhan-orange transition-colors">
                 {displayName}

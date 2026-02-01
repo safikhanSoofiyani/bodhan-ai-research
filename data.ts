@@ -1,4 +1,4 @@
-import { ResearchVertical, Pillar, Principle } from './types';
+import { ResearchVertical, Pillar, Principle, GrandChallenge } from './types';
 
 export const VISION_STATEMENT = `Our vision is to build a future where every child learns to read, write, count, and thrive with confidence, and every citizen (young or adult) is equipped to participate meaningfully in an AI-driven world.`;
 
@@ -56,6 +56,41 @@ export const PRINCIPLES: Principle[] = [
   }
 ];
 
+export const GRAND_CHALLENGES: GrandChallenge[] = [
+  {
+    id: "gc-asr",
+    vertical: "ASR",
+    title: "On-device ASR that understands every classroom",
+    description: "A single speech recognizer that runs fully offline on low-end Android devices and remains accurate across children’s voices, accents, and noisy classrooms.",
+    theme: "orange",
+    iconName: "Mic"
+  },
+  {
+    id: "gc-tts",
+    vertical: "TTS",
+    title: "Expressive, child-safe TTS on a phone",
+    description: "Natural, emotionally appropriate speech synthesis that works offline, supports Indian languages, and stays safe for children in real learning contexts.",
+    theme: "teal",
+    iconName: "Volume2"
+  },
+  {
+    id: "gc-ocr",
+    vertical: "OCR",
+    title: "Universal OCR for Indian scripts and handwriting",
+    description: "Accurate recognition of messy student handwriting and multi-script documents, running on-device and resilient to low-light camera captures.",
+    theme: "yellow",
+    iconName: "ScanText"
+  },
+  {
+    id: "gc-llm",
+    vertical: "LLM",
+    title: "Local-first tutoring LLM for every learner",
+    description: "A compact, safe, multilingual tutor that runs on-device, aligns with pedagogy, and supports personalized instruction without cloud reliance.",
+    theme: "purple",
+    iconName: "Brain"
+  }
+];
+
 export const RESEARCH_VERTICALS: ResearchVertical[] = [
   {
     id: "asr",
@@ -65,7 +100,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     iconName: "Mic",
     theme: 'orange',
     problemCount: 35,
-    tags: ["Speech", "Multilingual", "Children"],
+    tags: ["Speech"],
     problems: [
       {
         id: "4.1.1",
@@ -150,11 +185,11 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     id: "tts",
     title: "Text-to-Speech Synthesis",
     shortTitle: "TTS",
-    description: "Creating natural, expressive, and pedagogically effective speech synthesis for Indian languages and educational content.",
+    description: "Creating natural, expressive, and pedagogically effective speech synthesis for Indian languages.",
     iconName: "Volume2",
     theme: 'teal',
     problemCount: 28,
-    tags: ["Speech", "Synthesis", "Pedagogy"],
+    tags: ["Speech"],
     problems: [
       {
         id: "4.2.1",
@@ -183,11 +218,11 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     id: "llm",
     title: "Large Language Models",
     shortTitle: "LLM",
-    description: "Developing and adapting LLMs for Indian languages, educational contexts, and child-safe interactions.",
+    description: "Building better Edu-LLMs that support multilingual learning.",
     iconName: "Brain",
     theme: 'purple',
     problemCount: 42,
-    tags: ["NLP", "Generation", "Tutoring"],
+    tags: ["Text"],
     problems: [
       {
         id: "4.3.1",
@@ -213,7 +248,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     iconName: "ScanText",
     theme: 'yellow',
     problemCount: 24,
-    tags: ["Vision", "Documents", "Scripts"],
+    tags: ["Vision"],
     problems: [
       {
         id: "4.4.1",
@@ -235,11 +270,11 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     id: "mt",
     title: "Machine Translation",
     shortTitle: "MT",
-    description: "Breaking language barriers in education through high-quality translation between Indian languages.",
+    description: "Breaking language barriers through high-quality translation between Indian languages.",
     iconName: "Languages",
     theme: 'blue',
     problemCount: 30,
-    tags: ["NLP", "Translation", "Content"],
+    tags: ["Text", "Speech"],
     problems: [
       {
         id: "4.5.1",
@@ -265,7 +300,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     iconName: "ShieldCheck",
     theme: 'red',
     problemCount: 22,
-    tags: ["Safety", "Ethics", "Children"],
+    tags: ["Ethics", "Text", "Speech", "Vision"],
     problems: [
         {
         id: "4.6.1",
@@ -284,17 +319,6 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     ]
   },
    {
-    id: "eval",
-    title: "Evaluation & Assessment",
-    shortTitle: "Eval",
-    description: "Building robust evaluation frameworks for both AI systems and student learning outcomes.",
-    iconName: "Target",
-    theme: 'indigo',
-    problemCount: 26,
-    tags: ["Assessment", "Metrics", "Learning"],
-    problems: []
-  },
-   {
     id: "multi",
     title: "Multimodal AI",
     shortTitle: "Multi",
@@ -302,7 +326,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     iconName: "Brain",
     theme: 'green',
     problemCount: 20,
-    tags: ["Vision", "Speech", "Integration"],
+    tags: ["Text", "Vision", "Speech"],
     problems: []
   }
 ];

@@ -11,7 +11,7 @@ import {
   Clock,
   Mic, Volume2, Brain, ScanText, Languages, ShieldCheck, Target
 } from 'lucide-react';
-import { RESEARCH_VERTICALS, PILLARS, VISION_STATEMENT, PRINCIPLES } from './data';
+import { RESEARCH_VERTICALS, PILLARS, VISION_STATEMENT, PRINCIPLES, GRAND_CHALLENGES } from './data';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { VerticalTheme, ResearchProblem, Priority } from './types';
 
@@ -36,6 +36,36 @@ const THEME_BG_HOVER: Record<VerticalTheme, string> = {
   red: 'hover:border-bodhan-red/50',
   indigo: 'hover:border-bodhan-indigo/50',
   green: 'hover:border-bodhan-green/50',
+};
+
+const THEME_SOFT_BG: Record<VerticalTheme, string> = {
+  orange: 'bg-bodhan-orange/10 text-bodhan-orange',
+  teal: 'bg-bodhan-teal/10 text-bodhan-teal',
+  purple: 'bg-bodhan-purple/10 text-bodhan-purple',
+  yellow: 'bg-bodhan-yellow/15 text-bodhan-yellow',
+  blue: 'bg-bodhan-blue/10 text-bodhan-blue',
+  red: 'bg-bodhan-red/10 text-bodhan-red',
+  indigo: 'bg-bodhan-indigo/10 text-bodhan-indigo',
+  green: 'bg-bodhan-green/10 text-bodhan-green',
+};
+
+const THEME_BORDER: Record<VerticalTheme, string> = {
+  orange: 'border-bodhan-orange/30',
+  teal: 'border-bodhan-teal/30',
+  purple: 'border-bodhan-purple/30',
+  yellow: 'border-bodhan-yellow/30',
+  blue: 'border-bodhan-blue/30',
+  red: 'border-bodhan-red/30',
+  indigo: 'border-bodhan-indigo/30',
+  green: 'border-bodhan-green/30',
+};
+
+const CHALLENGE_ICONS: Record<string, React.ElementType> = {
+  Mic,
+  Volume2,
+  ScanText,
+  Brain,
+  Target
 };
 
 // --- Components ---
@@ -322,7 +352,7 @@ const VisionSection = () => {
                     ))}
                 </div>
 
-                <div className="bg-charcoal-800 rounded-3xl p-10 md:p-16 border-l-4 border-bodhan-orange relative overflow-hidden">
+                {/* <div className="bg-charcoal-800 rounded-3xl p-10 md:p-16 border-l-4 border-bodhan-orange relative overflow-hidden">
                     <div className="relative z-10 max-w-4xl mx-auto text-center">
                         <p className="text-xl md:text-2xl font-serif italic text-white leading-relaxed mb-6">
                             "This is not merely a technology initiative. It is a systemic transformation of how Bharat learns, teaches, evaluates, and builds digital capacity."
@@ -331,7 +361,7 @@ const VisionSection = () => {
                             — Aligned with NEP 2020 and Viksit Bharat @2047
                         </p>
                     </div>
-                </div>
+                </div> */}
              </div>
         </div>
     )
@@ -387,6 +417,62 @@ const PrinciplesSection = () => {
     )
 }
 
+const GrandChallengesSection = () => {
+    return (
+        <section id="grand-challenges" className="py-24 bg-cream-100 relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-0">
+                <div className="absolute -top-24 right-0 w-80 h-80 bg-bodhan-orange/10 rounded-full blur-3xl" />
+                <div className="absolute -bottom-24 left-0 w-80 h-80 bg-bodhan-teal/10 rounded-full blur-3xl" />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-14">
+                    {/* <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bodhan-orange text-charcoal-900 text-lg uppercase tracking-[0.3em] mb-6">
+                        Our Moonshots
+                    </span> */}
+                    <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">Grand Challenges</h2>
+                    <p className="text-gray-600 max-w-3xl mx-auto">
+                        Problems we want to tackle that push the limits of what’s possible. These are our high-risk, high-impact
+                        research bets.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {GRAND_CHALLENGES.map((challenge) => {
+                        const Icon = CHALLENGE_ICONS[challenge.iconName] ?? Target;
+
+                        return (
+                            <div
+                                key={challenge.id}
+                                className={`group bg-white/90 backdrop-blur rounded-3xl p-8 border ${THEME_BORDER[challenge.theme]} shadow-sm hover:shadow-lg transition-all duration-300`}
+                            >
+                                <div className="flex items-start justify-between mb-6">
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${THEME_SOFT_BG[challenge.theme]}`}>
+                                        <Icon size={36} />
+                                    </div>
+                                    <span className={`text-xl font-bold uppercase tracking-[0.2em] ${THEME_COLORS[challenge.theme]}`}>
+                                        {challenge.vertical}
+                                    </span>
+                                </div>
+
+                                <h3 className="text-2xl font-serif text-gray-900 mb-3">{challenge.title}</h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    {challenge.description}
+                                </p>
+
+                                {/* <div className="mt-6 flex items-center justify-between text-[11px] uppercase tracking-[0.3em] text-gray-400">
+                                    <span>Grand Challenge</span>
+                                    <span className={`font-bold ${THEME_COLORS[challenge.theme]}`}>Moonshot</span>
+                                </div> */}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+};
+
 const HomePage: React.FC = () => {
   return (
     <div className="animate-fade-in pt-20">
@@ -395,6 +481,7 @@ const HomePage: React.FC = () => {
         {/* <div className="pointer-events-none absolute -top-20 left-0 right-0 h-40 bg-gradient-to-b from-cream-100 via-[#F2E1C7] to-charcoal-900 transition-opacity duration-700" /> */}
         <VisionSection />
         <PrinciplesSection />
+        <GrandChallengesSection />
         {/* <div className="pointer-events-none absolute -bottom-20 left-0 right-0 h-40 bg-gradient-to-b from-charcoal-900 via-[#2A1A10] to-cream-100 transition-opacity duration-700" /> */}
         {/* <div className="pointer-events-none absolute -top-20 left-0 right-0 h-40 bg-gradient-to-b from-cream-100 via-[#F2E1C7] to-charcoal-900 transition-opacity duration-700" /> */}
       </div>
@@ -403,7 +490,7 @@ const HomePage: React.FC = () => {
       <div id="research" className="py-24 bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-medium text-gray-900 mb-6">Explore Our Research Agenda</h2>
+            <h2 className="text-5xl font-serif font-medium text-gray-900 mb-6">Explore Our Research Agenda</h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
               Select a research vertical to explore detailed problem statements and collaboration opportunities.
             </p>

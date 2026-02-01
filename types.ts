@@ -39,3 +39,12 @@ export interface Principle {
   title: string;
   description: string;
 }
+
+export interface GrandChallenge {
+  id: string;
+  vertical: string;
+  title: string;
+  description: string;
+  theme: VerticalTheme;
+  iconName: string;
+}
