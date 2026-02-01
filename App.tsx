@@ -284,7 +284,7 @@ const HeroSection = () => {
                     <div className="hidden lg:block relative h-[500px] w-full">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img
-                                src="/artifacts/logo.png"
+                                src="./artifacts/logo.png"
                                 alt="Bodhan Leaf"
                                 className="w-[580px] h-[580px] object-contain drop-shadow-[0_20px_60px_rgba(255,98,7,0.25)]"
                             />
