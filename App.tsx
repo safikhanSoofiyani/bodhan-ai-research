@@ -84,7 +84,7 @@ const Button: React.FC<{
   className?: string;
 }> = ({ variant = 'primary', children, onClick, href, className = '' }) => {
   // Added 'whitespace-nowrap' and 'flex-shrink-0'
-  const baseStyles = "relative inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden whitespace-nowrap flex-shrink-0";
+  const baseStyles = "relative inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 overflow-hidden whitespace-nowrap flex-shrink-0";
   
   const variants = {
     primary: "text-white bg-charcoal-900 focus:ring-charcoal-800",
@@ -148,14 +148,14 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="Bodhan AI" className="h-10 w-10 object-contain" />
-              <span className="text-[15px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
+              <span className="text-[18px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
             </Link>
           </div>
           
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Vision</button>
-            <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Principles</button>
-            <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Research</button>
+            <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Vision</button>
+            <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Principles</button>
+            <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Research</button>
             <Button variant="primary" href="mailto:research@bodhan.ai" className="px-6 py-2">
               Join Us
             </Button>
@@ -177,7 +177,7 @@ const Header: React.FC = () => {
              <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Principles</button>
              <button onClick={() => scrollToSection('research')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Research</button>
             <a href="mailto:research@bodhan.ai" className="block py-2 text-bodhan-orange font-bold">
-              Join Research
+              Join Us
             </a>
           </div>
         </div>
@@ -194,7 +194,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-6">
                <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="Bodhan AI" className="h-12 w-12 object-contain" />
-               <span className="text-[10px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
+               <span className="text-[15px] tracking-[0.2em] text-gray-600 uppercase">Bodhan AI</span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
               A semi-research organization building the Bharat EduAI Stack. 
@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="mt-8">
                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-black/5 border border-black/10 text-xs text-gray-600">
-                    IIT Madras AI Centre of Excellence
+                    Building India's Future, One Learner at a Time
                 </span>
             </div>
           </div>
@@ -247,7 +247,7 @@ const HeroSection = () => {
                     {/* Content */}
                     <div className="animate-fade-in">
                          <div className="inline-block px-4 py-2 rounded-full border border-black/10 bg-black/5 text-gray-600 text-base font-medium mb-8">
-                            IIT Madras AI Centre of Excellence for Education
+                            Building India's Future, One Learner at a Time
                         </div>
                         
                         <h1 className="text-5xl md:text-7xl font-serif text-gray-900 leading-[1.1] mb-8">
