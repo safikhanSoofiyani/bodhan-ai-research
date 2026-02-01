@@ -335,7 +335,7 @@ const HeroSection = () => {
 
 const VisionSection = () => {
     return (
-        <div id="vision" className="py-24 bg-charcoal-900 relative text-white">
+        <div id="vision" className="py-24 text-white">
              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Our Vision</span>
@@ -377,7 +377,7 @@ const PrinciplesSection = () => {
     const [openIndex, setOpenIndex] = useState<number>(-1);
 
     return (
-        <div id="principles" className="py-24 bg-charcoal-900 text-white">
+        <div id="principles" className="py-24 text-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                      <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Research Philosophy</span>
@@ -399,7 +399,7 @@ const PrinciplesSection = () => {
                                     <span className={`text-xl font-serif ${openIndex === idx ? 'text-bodhan-orange' : 'text-white'}`}>
                                         {principle.id}
                                     </span>
-                                    <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-white' : 'text-white'}`}>
+                                    <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-bodhan-orange' : 'text-white'}`}>
                                         {principle.title}
                                     </h3>
                                 </div>
@@ -479,14 +479,58 @@ const GrandChallengesSection = () => {
     );
 };
 
+const CallToActionSection = () => {
+  return (
+    <section className="py-20 md:py-28 bg-charcoal-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#24150F] via-charcoal-900 to-[#0C1B1A]" />
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-bodhan-orange/20 rounded-full blur-[140px]" />
+        <div className="absolute -bottom-40 right-0 w-[520px] h-[520px] bg-bodhan-teal/20 rounded-full blur-[160px]" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6">
+          Ready to Shape the Future of Education?
+        </h2>
+        <p className="text-gray-100 max-w-3xl mx-auto text-base md:text-lg leading-relaxed mb-10">
+          We’re looking for researchers, PhD students, startups, and institutions to collaborate on these open problems.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="mailto:research@bodhan.ai"
+            className="inline-flex items-center text-lg justify-center gap-2 px-8 py-3 rounded-full bg-bodhan-orange text-charcoal-900 font-semibold shadow-lg shadow-bodhan-orange/20 hover:brightness-110 transition-all w-full sm:w-auto"
+          >
+            Get in Touch <ArrowRight size={16} />
+          </a>
+          <a
+            href="#research"
+            className="inline-flex items-center text-lg justify-center px-8 py-3 rounded-full border border-white/20 text-white/90 hover:text-white hover:border-white/40 transition-all w-full sm:w-auto"
+          >
+            Browse Problems
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const HomePage: React.FC = () => {
   return (
     <div className="animate-fade-in pt-20">
       <HeroSection />
       <div className="relative">
         {/* <div className="pointer-events-none absolute -top-20 left-0 right-0 h-40 bg-gradient-to-b from-cream-100 via-[#F2E1C7] to-charcoal-900 transition-opacity duration-700" /> */}
-        <VisionSection />
-        <PrinciplesSection />
+        <div className="relative bg-charcoal-900 text-white overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#24150F] via-charcoal-900 to-[#0C1B1A]" />
+            <div className="absolute -top-32 -left-32 w-96 h-96 bg-bodhan-orange/20 rounded-full blur-[140px]" />
+            <div className="absolute -bottom-40 right-0 w-[520px] h-[520px] bg-bodhan-teal/20 rounded-full blur-[160px]" />
+          </div>
+          <div className="relative z-10">
+            <VisionSection />
+            <PrinciplesSection />
+          </div>
+        </div>
         <GrandChallengesSection />
         {/* <div className="pointer-events-none absolute -bottom-20 left-0 right-0 h-40 bg-gradient-to-b from-charcoal-900 via-[#2A1A10] to-cream-100 transition-opacity duration-700" /> */}
         {/* <div className="pointer-events-none absolute -top-20 left-0 right-0 h-40 bg-gradient-to-b from-cream-100 via-[#F2E1C7] to-charcoal-900 transition-opacity duration-700" /> */}
@@ -538,6 +582,8 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <CallToActionSection />
     </div>
   );
 };
