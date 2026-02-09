@@ -177,7 +177,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="bodhan.ai" className="h-10 w-10 object-contain" />
+              <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png" alt="bodhan.ai" className="h-10 w-10 object-contain" />
               <span className="text-[22px] tracking-[0.12em] text-gray-800 lowercase">
                 bodhan<span className="text-bodhan-orange">.ai</span>
               </span>
@@ -225,7 +225,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-6">
-               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png" alt="bodhan.ai" className="h-12 w-12 object-contain" />
+               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png" alt="bodhan.ai" className="h-12 w-12 object-contain" />
                <span className="text-[22px] tracking-[0.12em] text-gray-800 lowercase">
                  bodhan<span className="text-bodhan-orange">.ai</span>
                </span>
@@ -320,7 +320,7 @@ const HeroSection = () => {
                     <div className="hidden lg:block relative h-[500px] w-full">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <img
-                                src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/img/logo.png"
+                                src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png"
                                 alt="Bodhan Leaf"
                                 className="w-[580px] h-[580px] object-contain drop-shadow-[0_20px_60px_rgba(255,98,7,0.25)]"
                             />
