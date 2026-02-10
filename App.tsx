@@ -275,14 +275,14 @@ const Footer: React.FC = () => {
 
 const HeroSection = () => {
     return (
-        <div className="relative min-h-[90vh] flex items-center bg-cream-100 overflow-hidden">
+        <div className="relative min-h-[90vh] flex items-center bg-cream-100 overflow-hidden py-10 sm:py-14 lg:py-16">
             <div className="absolute inset-0 bg-gradient-to-b from-cream-100 via-cream-100 to-[#F3E6D6] opacity-70"></div>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
                     {/* Content */}
-                    <div className="animate-fade-in">
-                         <div className="inline-block px-4 py-2 rounded-full border border-black/10 bg-black/5 text-gray-600 text-base font-medium mb-8">
+                    <div className="animate-fade-in pb-8 sm:pb-10 lg:pb-4">
+                         <div className="inline-flex flex-wrap items-center justify-center sm:justify-start max-w-full px-3 sm:px-4 py-2 rounded-full border border-black/10 bg-black/5 text-gray-600 text-sm sm:text-base font-medium leading-snug mb-8 text-center sm:text-left">
                             Building India's Future, One Learner at a Time
                         </div>
                         
@@ -296,7 +296,7 @@ const HeroSection = () => {
                             A comprehensive agenda of 200+ research problems across Speech, Language, Vision, and Learning technologies — designed to transform how Bharat learns, teaches, and thrives.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 mb-12 max-w-xl sm:mx-0 lg:ml-auto">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mb-12 max-w-xl sm:mx-0">
                             <div className="text-center">
                                 <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">200+</div>
                                 <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium sm:whitespace-nowrap">Research Problems</div>
