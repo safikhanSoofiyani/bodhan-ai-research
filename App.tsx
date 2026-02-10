@@ -385,7 +385,7 @@ const PrinciplesSection = () => {
                      <p className="text-gray-200 text-lg">The non-negotiable principles that guide every decision we make.</p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-2">
                     {PRINCIPLES.map((principle, idx) => (
                         <div 
                             key={principle.id} 
@@ -393,17 +393,17 @@ const PrinciplesSection = () => {
                         >
                             <button 
                                 onClick={() => setOpenIndex(idx === openIndex ? -1 : idx)}
-                                className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
+                                className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none"
                             >
                                 <div className="flex items-center gap-6">
-                                    <span className={`text-xl font-serif ${openIndex === idx ? 'text-bodhan-orange' : 'text-white'}`}>
+                                    <span className="w-12 h-12 rounded-lg bg-bodhan-orange text-white text-xl font-bold flex items-center justify-center shrink-0">
                                         {principle.id}
                                     </span>
                                     <h3 className={`text-lg md:text-xl font-serif italic ${openIndex === idx ? 'text-bodhan-orange' : 'text-white'}`}>
                                         {principle.title}
                                     </h3>
                                 </div>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-bodhan-orange text-gray-900' : 'bg-charcoal-700 text-gray-400'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === idx ? 'bg-bodhan-orange text-gray-900' : 'bg-charcoal-700 text-white'}`}>
                                     {openIndex === idx ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                 </div>
                             </button>
