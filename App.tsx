@@ -186,7 +186,7 @@ const Header: React.FC = () => {
           
           <div className="hidden md:flex md:items-center md:space-x-8">
             <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Vision</button>
-            <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Principles</button>
+            <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Sutras</button>
             <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Research</button>
             <Button variant="primary" href="mailto:research@bodhan.ai" className="px-6 py-2">
               Join Us
@@ -206,7 +206,7 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-cream-100 border-b border-black/10 absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-4">
              <button onClick={() => scrollToSection('vision')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Vision</button>
-             <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Principles</button>
+             <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Sutras</button>
              <button onClick={() => scrollToSection('research')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Research</button>
             <a href="mailto:research@bodhan.ai" className="block py-2 text-bodhan-orange font-bold">
               Join Us
@@ -380,7 +380,7 @@ const PrinciplesSection = () => {
         <div id="principles" className="py-24 text-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                     <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Research Philosophy</span>
+                     <span className="text-bodhan-orange text-xl font-bold tracking-[0.2em] uppercase mb-4 block">Research Principles</span>
                      <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">The Sutras</h2>
                      <p className="text-gray-200 text-lg">The non-negotiable principles that guide every decision we make.</p>
                 </div>
@@ -566,7 +566,7 @@ const HomePage: React.FC = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-3">
                   {vertical.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 h-14 line-clamp-2">
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 min-h-[124px] line-clamp-3">
                   {vertical.description}
                 </p>
 
