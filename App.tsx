@@ -178,8 +178,8 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png" alt="bodhan.ai" className="h-10 w-10 object-contain" />
-              <span className="text-[22px] tracking-[0.12em] text-gray-800 lowercase">
-                bodhan<span className="text-bodhan-orange">.ai</span>
+              <span className="text-[22px] tracking-[0.12em] text-gray-800">
+                Bodhan<span className="text-bodhan-orange">.AI</span>
               </span>
             </Link>
           </div>
@@ -226,12 +226,12 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3 mb-6">
                <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png" alt="bodhan.ai" className="h-12 w-12 object-contain" />
-               <span className="text-[22px] tracking-[0.12em] text-gray-800 lowercase">
-                 bodhan<span className="text-bodhan-orange">.ai</span>
+               <span className="text-[22px] tracking-[0.12em] text-gray-800">
+                 Bodhan<span className="text-bodhan-orange">.AI</span>
                </span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-              A semi-research organization building the Bharat EduAI Stack. 
+              Building the Bharat EduAI Stack. 
               Solving open research problems to transform India's education ecosystem in alignment with NEP 2020.
             </p>
             <div className="mt-8">
@@ -259,7 +259,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
           <p>
-            &copy; {new Date().getFullYear()} bodhan<span className="text-bodhan-orange">.ai</span>. All rights reserved.
+            &copy; {new Date().getFullYear()} Bodhan<span className="text-bodhan-orange">.AI</span>. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
              <span>Privacy Policy</span>
