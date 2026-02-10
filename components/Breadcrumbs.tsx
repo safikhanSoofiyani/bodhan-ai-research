@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
-import { RESEARCH_VERTICALS } from '../data';
+import { RESEARCH_VERTICALS, GRAND_CHALLENGES } from '../data';
 
 export const Breadcrumbs: React.FC = () => {
   const location = useLocation();
@@ -26,12 +26,15 @@ export const Breadcrumbs: React.FC = () => {
         if (pathnames[index-1] === 'vertical') {
             const vertical = RESEARCH_VERTICALS.find(v => v.id === value);
             if (vertical) displayName = vertical.shortTitle || vertical.title;
+        } else if (pathnames[index-1] === 'grand-challenge') {
+            const challenge = GRAND_CHALLENGES.find(c => c.id === value);
+            if (challenge) displayName = challenge.title;
         } else if (pathnames[index-1] === 'problem') {
              const verticalId = pathnames[index-2];
              const vertical = RESEARCH_VERTICALS.find(v => v.id === verticalId);
              const problem = vertical?.problems.find(p => p.id === value);
              if (problem) displayName = problem.title.length > 20 ? problem.title.substring(0,20) + '...' : problem.title;
-        } else if (value === 'vertical' || value === 'problem') {
+        } else if (value === 'vertical' || value === 'problem' || value === 'grand-challenge') {
             return null; // Skip connector routes
         }
 

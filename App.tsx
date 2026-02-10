@@ -68,6 +68,26 @@ const CHALLENGE_ICONS: Record<string, React.ElementType> = {
   Target
 };
 
+const GRAND_CHALLENGE_BLOG: Record<string, { intro: string; sections: { heading: string; body: string; }[]; }> = {
+  "on-device-systems": {
+    intro: "On-device AI is the foundation for equitable, privacy-preserving education tools. When models run locally, they remain available in low-connectivity contexts, respect learner data, and reduce long-term costs for schools and states.",
+    sections: [
+      {
+        heading: "Why This Matters",
+        body: "India’s classrooms are diverse, bandwidth is uneven, and devices are often low-end. On-device systems ensure that learning tools remain reliable in real-world environments, not just ideal lab settings."
+      },
+      {
+        heading: "What We’re Building Toward",
+        body: "We aim to develop compact models, optimized pipelines, and hardware-aware evaluation that make speech, vision, and tutoring systems run smoothly on entry-level devices without sacrificing safety."
+      },
+      {
+        heading: "Open Research Directions",
+        body: "This includes low-latency inference, energy-aware optimization, compression without accuracy collapse, and deployment tooling that works across multiple Indian languages and scripts."
+      }
+    ]
+  }
+};
+
 // --- Components ---
 
 // const Button: React.FC<{
@@ -433,23 +453,17 @@ const GrandChallengesSection = () => {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-14">
-                    {/* <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bodhan-orange text-charcoal-900 text-lg uppercase tracking-[0.3em] mb-6">
-                        Our Moonshots
-                    </span> */}
-                    <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">Grand Challenges</h2>
-                    <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-                        Problems we want to tackle that push the limits of what’s possible. These are our high-risk, high-impact
-                        research bets.
-                    </p>
+                    <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">The Grand Challenge</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
                     {GRAND_CHALLENGES.map((challenge) => {
                         const Icon = CHALLENGE_ICONS[challenge.iconName] ?? Target;
 
                         return (
-                            <div
+                            <Link
                                 key={challenge.id}
+                                to={`/grand-challenge/${challenge.id}`}
                                 className={`group bg-white/90 backdrop-blur rounded-3xl p-8 border ${THEME_BORDER[challenge.theme]} shadow-sm hover:shadow-lg transition-all duration-300`}
                             >
                                 <div className="flex items-start justify-between mb-6">
@@ -470,7 +484,7 @@ const GrandChallengesSection = () => {
                                     <span>Grand Challenge</span>
                                     <span className={`font-bold ${THEME_COLORS[challenge.theme]}`}>Moonshot</span>
                                 </div> */}
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>
@@ -854,6 +868,47 @@ const VerticalPage: React.FC = () => {
   );
 };
 
+const GrandChallengePage: React.FC = () => {
+  const { challengeId } = useParams();
+  const challenge = GRAND_CHALLENGES.find(c => c.id === challengeId);
+
+  if (!challenge) return <Navigate to="/" replace />;
+
+  const blog = GRAND_CHALLENGE_BLOG[challenge.id];
+
+  return (
+    <div className="min-h-screen bg-cream-100 pt-28 pb-20 animate-fade-in">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs />
+
+        <div className="mb-10">
+          <span className={`text-xs uppercase tracking-[0.3em] ${THEME_COLORS[challenge.theme]}`}>
+            {challenge.vertical}
+          </span>
+          <h1 className="text-4xl md:text-5xl font-serif font-semibold text-gray-900 mt-3">
+            {challenge.title}
+          </h1>
+          <p className="text-gray-600 text-lg mt-4">
+            {challenge.description}
+          </p>
+        </div>
+
+        <article className="space-y-8 text-gray-700 leading-relaxed">
+          <p className="text-lg">
+            {blog?.intro}
+          </p>
+          {blog?.sections.map(section => (
+            <div key={section.heading}>
+              <h2 className="text-2xl font-serif text-gray-900 mb-3">{section.heading}</h2>
+              <p>{section.body}</p>
+            </div>
+          ))}
+        </article>
+      </div>
+    </div>
+  );
+};
+
 const ScrollToTop = () => {
     const { pathname, hash } = useLocation();
     useEffect(() => {
@@ -889,6 +944,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/vertical/:verticalId" element={<VerticalPage />} />
+            <Route path="/grand-challenge/:challengeId" element={<GrandChallengePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

@@ -78,36 +78,12 @@ export const PRINCIPLES: Principle[] = [
 
 export const GRAND_CHALLENGES: GrandChallenge[] = [
   {
-    id: "gc-asr",
-    vertical: "ASR",
-    title: "On-device ASR that understands every classroom",
-    description: "A single speech recognizer that runs fully offline on low-end Android devices and remains accurate across children’s voices, accents, and noisy classrooms.",
-    theme: "orange",
-    iconName: "Mic"
-  },
-  {
-    id: "gc-tts",
-    vertical: "TTS",
-    title: "Expressive, child-safe TTS on a phone",
-    description: "Natural, emotionally appropriate speech synthesis that works offline, supports Indian languages, and stays safe for children in real learning contexts.",
-    theme: "teal",
-    iconName: "Volume2"
-  },
-  {
-    id: "gc-ocr",
-    vertical: "OCR",
-    title: "Universal OCR for Indian scripts and handwriting",
-    description: "Accurate recognition of messy student handwriting and multi-script documents, running on-device and resilient to low-light camera captures.",
-    theme: "yellow",
-    iconName: "ScanText"
-  },
-  {
-    id: "gc-llm",
-    vertical: "LLM",
-    title: "Local-first tutoring LLM for every learner",
-    description: "A compact, safe, multilingual tutor that runs on-device, aligns with pedagogy, and supports personalized instruction without cloud reliance.",
+    id: "on-device-systems",
+    vertical: "Grand Challenge",
+    title: "On-device Systems",
+    description: "Designing private, offline-first AI systems that run reliably on low-end devices while remaining accurate, safe, and affordable at scale.",
     theme: "purple",
-    iconName: "Brain"
+    iconName: "Target"
   }
 ];
 
