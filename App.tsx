@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { HashRouter as Router, Routes, Route, Link, useParams, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, 
@@ -88,24 +89,62 @@ const CHALLENGE_ICONS: Record<string, React.ElementType> = {
   Target
 };
 
-const GRAND_CHALLENGE_BLOG: Record<string, { intro: string; sections: { heading: string; body: string; }[]; }> = {
+const GRAND_CHALLENGE_BLOG: Record<string, { markdown: string; }> = {
   "on-device-systems": {
-    intro: "On-device AI is the foundation for equitable, privacy-preserving education tools. When models run locally, they remain available in low-connectivity contexts, respect learner data, and reduce long-term costs for schools and states.",
-    sections: [
-      {
-        heading: "Why This Matters",
-        body: "India’s classrooms are diverse, bandwidth is uneven, and devices are often low-end. On-device systems ensure that learning tools remain reliable in real-world environments, not just ideal lab settings."
-      },
-      {
-        heading: "What We’re Building Toward",
-        body: "We aim to develop compact models, optimized pipelines, and hardware-aware evaluation that make speech, vision, and tutoring systems run smoothly on entry-level devices without sacrificing safety."
-      },
-      {
-        heading: "Open Research Directions",
-        body: "This includes low-latency inference, energy-aware optimization, compression without accuracy collapse, and deployment tooling that works across multiple Indian languages and scripts."
-      }
-    ]
-  }
+  markdown: [
+    "## **The Grand Challenge – Making AI for Education work for the “real” India**",
+    "",
+    "There is a certain kind of AI demo that works beautifully on stage.",
+    "And then there is the reality.",
+    "",
+    "Here, learning often happens under strict technical constraints: intermittent connectivity, low bandwidth, shared devices, and entry-level smartphones with limited compute, memory, and battery capacity. If we are serious about **AI for education in India**, then we must confront a difficult truth:",
+    "",
+    "> *“The hardest and most important AI problems are not the flashiest ones.",
+    "> They are the ones that must work reliably, and most importantly locally.”*",
+    "",
+    "This opinion piece is about one such problem. Not a solution. Not a roadmap.",
+    "But a **grand challenge worth naming and pursuing**.",
+    "",
+    "---",
+    "",
+    "### **On-Device AI and Low-Bandwidth Learning: A Grand Challenge for Education in India**",
+    "",
+    "Much of the current excitement around AI is shaped by demonstrations that assume ideal conditions: stable internet, powerful servers, and seamless cloud access. These assumptions are so common that they often go unquestioned. Yet when we shift our attention to the on-ground realities, especially to how and where learning actually happens, these assumptions begin to collapse. For a large share of learners, connectivity is inconsistent, devices are modest, and the cost of data is a real constraint. In this context, the central problem is not how sophisticated and powerful educational AI can become, but whether it can function at all when removed from the cloud.",
+    "",
+    "---",
+    "",
+    "### **When the Cloud Assumption Breaks**",
+    "",
+    "This is why on-device AI operating under low-bandwidth conditions should be seen as a grand challenge for AI in education in India. It is not a peripheral deployment issue or an engineering detail to be addressed later. It is the core problem that determines whether AI systems can meaningfully participate in the educational ecosystem at scale.",
+    "",
+    "Learning in India frequently takes place on low-end smartphones with limited memory, constrained compute, and finite battery life. Internet access may exist, but it is often intermittent, slow, or shared across multiple users. In such settings, an educational AI system that relies on constant server communication becomes fragile. Each dropped connection interrupts the learning flow. Each delay reduces trust. Over time, systems that fail under these conditions simply stop being used.",
+    "",
+    "---",
+    "",
+    "### **The Systems Problem We Underestimate**",
+    "",
+    "An on-device approach fundamentally changes this equation. It requires key capabilities — ASR, TTS, Translation, and basic understanding — to run locally, without depending on continuous network access. This shift is deceptively difficult. Running even a single speech model on-device is challenging; running multiple components together, in real time, on constrained hardware is a much harder systems problem. Memory contention, thermal limits, latency, and energy consumption all become first-order concerns rather than background optimizations.",
+    "",
+    "Low-bandwidth environments further complicate matters. These settings are not the same as fully offline scenarios. Connectivity may appear briefly and disappear again. Certain operations may work while others fail. Educational systems must therefore be designed to operate fully without the network, while also being able to take advantage of it opportunistically when it becomes available. This requires careful architectural thinking around caching, synchronization, and graceful degradation, none of which are solved automatically by scaling models down.",
+    "",
+    "---",
+    "",
+    "### **Why Education Raises the Bar**",
+    "",
+    "Education amplifies these challenges. Errors that might be acceptable in other applications become costly when learning is involved, especially with children. A delayed response can break concentration. A transcription error can change meaning. A poorly chosen next step can confuse rather than support. Educational AI systems must therefore meet a higher bar for reliability and consistency, even when operating under severe constraints. Achieving this on-device is substantially harder than achieving high benchmark performance in controlled environments.",
+    "",
+    "Crucially, this is not a problem that can be solved after the fact. Models and systems designed with cloud assumptions tend to encode those assumptions deeply, in their architectures, interfaces, and evaluation methods. Retrofitting them for edge deployment often leads to brittle compromises. Treating on-device, low-bandwidth operation as a primary constraint from the outset forces different research questions: how to trade off accuracy against latency, how to measure usefulness rather than raw performance, and how to design systems that fail safely rather than abruptly.",
+    "",
+    "---",
+    "",
+    "### **More Than a Technical Constraint**",
+    "",
+    "If this challenge is addressed seriously, the benefits extend well beyond technical elegance. Educational AI that works reliably on-device can reach learners regardless of connectivity, reduce dependence on costly infrastructure, and offer stronger privacy guarantees by keeping data local. Most importantly, it aligns technology with the realities of learners rather than asking learners to adapt to technology.",
+    "",
+    "For these reasons, on-device AI under low-bandwidth conditions deserves to be recognized as a grand challenge for AI in education in India. It is difficult, slow to solve, and resistant to shortcuts. Yet it directly determines whether AI will remain a technology optimized for ideal conditions, or become one that supports learning where conditions are far from ideal. Naming and centering this challenge is an essential first step toward building educational systems that are genuinely inclusive and robust."
+  ].join("\n")
+}
+
 };
 
 // --- Components ---
@@ -342,7 +381,7 @@ const HeroSection = () => {
                                 <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium sm:whitespace-nowrap">Research Problems</div>
                             </div>
                             <div className="text-center">
-                                <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">22</div>
+                                <div className="text-5xl text-bodhan-orange font-serif font-bold mb-1">22+</div>
                                 <div className="text-[13px] text-gray-500 tracking-wider uppercase font-medium sm:whitespace-nowrap">Indian Languages</div>
                             </div>
                             <div className="text-center">
@@ -875,16 +914,38 @@ const GrandChallengePage: React.FC = () => {
           </p>
         </div>
 
-        <article className="space-y-8 text-gray-700 leading-relaxed">
-          <p className="text-lg">
-            {blog?.intro}
-          </p>
-          {blog?.sections.map(section => (
-            <div key={section.heading}>
-              <h2 className="text-2xl font-serif text-gray-900 mb-3">{section.heading}</h2>
-              <p>{section.body}</p>
-            </div>
-          ))}
+        <article className="text-gray-700 leading-relaxed">
+          <ReactMarkdown
+            className="space-y-8"
+            components={{
+              h1: ({ node, ...props }) => (
+                <h1 className="text-4xl md:text-5xl font-serif font-semibold text-gray-900 mt-10" {...props} />
+              ),
+              h2: ({ node, ...props }) => (
+                <h2 className="text-2xl font-serif text-gray-900 mt-10 mb-3" {...props} />
+              ),
+              h3: ({ node, ...props }) => (
+                <h3 className="text-xl font-serif text-gray-900 mt-8 mb-2" {...props} />
+              ),
+              p: ({ node, ...props }) => (
+                <p className="text-gray-700" {...props} />
+              ),
+              ul: ({ node, ...props }) => (
+                <ul className="list-disc pl-6" {...props} />
+              ),
+              ol: ({ node, ...props }) => (
+                <ol className="list-decimal pl-6" {...props} />
+              ),
+              li: ({ node, ...props }) => (
+                <li className="my-1" {...props} />
+              ),
+              a: ({ node, ...props }) => (
+                <a className="underline decoration-gray-300 underline-offset-4 hover:decoration-gray-500" {...props} />
+              )
+            }}
+          >
+            {blog?.markdown ?? ''}
+          </ReactMarkdown>
         </article>
       </div>
     </div>

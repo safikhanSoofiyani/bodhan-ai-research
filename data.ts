@@ -81,7 +81,7 @@ export const GRAND_CHALLENGES: GrandChallenge[] = [
     id: "on-device-systems",
     vertical: "Grand Challenge",
     title: "On-device Systems",
-    description: "Designing offline-first and low-bandwidth AI systems that run reliably on low-end devices while remaining accurate, safe, and affordable at scale.",
+    description: "",
     theme: "purple",
     iconName: "Target"
   }
