@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       // Add this line here
-      base: '/bodhan-ai-research/', 
+      base: './', 
       server: {
         port: 3000,
         host: '0.0.0.0',
