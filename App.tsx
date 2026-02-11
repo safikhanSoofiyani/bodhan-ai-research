@@ -205,6 +205,7 @@ const Header: React.FC = () => {
           </div>
           
           <div className="hidden md:flex md:items-center md:space-x-8">
+            <a href="https://bodhan.ai" className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Homepage</a>
             <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Vision</button>
             {/* <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Sutras</button> */}
             <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Research</button>
@@ -225,6 +226,7 @@ const Header: React.FC = () => {
       {isOpen && (
         <div className="md:hidden bg-cream-100 border-b border-black/10 absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-4">
+             <a href="https://bodhan.ai" className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Homepage</a>
              <button onClick={() => scrollToSection('vision')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Vision</button>
              {/* <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Sutras</button> */}
              <button onClick={() => scrollToSection('research')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Research</button>
