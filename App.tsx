@@ -199,14 +199,14 @@ const Header: React.FC = () => {
             <Link to="/" className="flex items-center gap-3">
               <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png" alt="bodhan.ai" className="h-10 w-10 object-contain" />
               <span className="text-[22px] tracking-[0.12em] text-gray-800">
-                Bodhan<span className="text-bodhan-orange">.AI</span>
+                <span className="font-semibold">Bodhan</span><span className="text-bodhan-orange">.AI</span>
               </span>
             </Link>
           </div>
           
           <div className="hidden md:flex md:items-center md:space-x-8">
             <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Vision</button>
-            <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Sutras</button>
+            {/* <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Sutras</button> */}
             <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Research</button>
             <Button variant="primary" href="mailto:research@bodhan.ai" className="px-6 py-2">
               Join Us
@@ -226,7 +226,7 @@ const Header: React.FC = () => {
         <div className="md:hidden bg-cream-100 border-b border-black/10 absolute w-full">
           <div className="px-4 pt-2 pb-6 space-y-4">
              <button onClick={() => scrollToSection('vision')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Vision</button>
-             <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Sutras</button>
+             {/* <button onClick={() => scrollToSection('principles')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Sutras</button> */}
              <button onClick={() => scrollToSection('research')} className="block w-full text-left py-2 text-gray-700 hover:text-gray-900">Research</button>
             <a href="mailto:research@bodhan.ai" className="block py-2 text-bodhan-orange font-bold">
               Join Us
@@ -247,13 +247,11 @@ const Footer: React.FC = () => {
             <Link to="/" className="inline-flex items-center gap-3 mb-6">
                <img src="https://raw.githubusercontent.com/safikhanSoofiyani/safikhanSoofiyani.github.io/refs/heads/master/assets/Icon.png" alt="bodhan.ai" className="h-12 w-12 object-contain" />
                <span className="text-[22px] tracking-[0.12em] text-gray-800">
-                 Bodhan<span className="text-bodhan-orange">.AI</span>
+                 <span className="font-semibold">Bodhan</span><span className="text-bodhan-orange">.AI</span>
                </span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
-              Building the Bharat EduAI Stack. 
-              Solving open research problems to transform India's education ecosystem in alignment with NEP 2020.
-            </p>
+              Bodhan AI - The Centre of Excellence in AI for Education. An IIT Madras-incubated initiative supported by the Ministry of Education.</p>
             <div className="mt-8">
                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-black/5 border border-black/10 text-xs text-gray-600">
                     Building India's Future, One Learner at a Time
@@ -542,7 +540,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="relative z-10">
             <VisionSection />
-            <PrinciplesSection />
+            {/* <PrinciplesSection /> */}
           </div>
         </div>
         <GrandChallengesSection />
