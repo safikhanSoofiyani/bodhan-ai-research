@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { RESEARCH_VERTICALS, PILLARS, VISION_STATEMENT, PRINCIPLES, GRAND_CHALLENGES } from './data';
 import { Breadcrumbs } from './components/Breadcrumbs';
-import { VerticalTheme, ResearchProblem, Priority } from './types';
+import { VerticalTheme, ResearchProblem } from './types';
 
 // --- Theme Helper ---
 const THEME_COLORS: Record<VerticalTheme, string> = {
@@ -660,17 +660,6 @@ const AreaAccordion: React.FC<{
                                  <div className="flex-grow">
                                      <div className="flex justify-between items-start">
                                          <h4 className="text-lg font-bold text-gray-900 mb-2">{outcome.title}</h4>
-                                          <div className="flex gap-2">
-                                            {outcome.priority === 'CRITICAL' && (
-                                                <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-red-500/20 text-red-400 border border-red-500/20">Critical</span>
-                                            )}
-                                            {outcome.priority === 'HIGH' && (
-                                                <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-yellow-500/20 text-yellow-400 border border-yellow-500/20">High</span>
-                                            )}
-                                             {outcome.priority === 'MEDIUM' && (
-                                                <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-blue-500/20 text-blue-400 border border-blue-500/20">Medium</span>
-                                            )}
-                                        </div>
                                      </div>
                                      <p className="text-gray-600 text-sm mb-4 leading-relaxed">{outcome.description}</p>
                                      <div className="flex justify-between items-center">
@@ -701,7 +690,6 @@ const VerticalPage: React.FC = () => {
   
   // State for Filters
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
-  const [selectedPriority, setSelectedPriority] = useState<Set<Priority>>(new Set());
   const [openAreas, setOpenAreas] = useState<Set<string>>(new Set());
 
   // Initialize with only the first area open
@@ -725,13 +713,6 @@ const VerticalPage: React.FC = () => {
       setSelectedTags(next);
   }
 
-  const togglePriority = (p: Priority) => {
-       const next = new Set(selectedPriority);
-      if (next.has(p)) next.delete(p);
-      else next.add(p);
-      setSelectedPriority(next);
-  }
-
   const toggleArea = (id: string) => {
       const next = new Set(openAreas);
       if (next.has(id)) next.delete(id);
@@ -743,8 +724,7 @@ const VerticalPage: React.FC = () => {
   const getFilteredOutcomes = (problem: ResearchProblem) => {
       return problem.outcomes.filter(outcome => {
           const matchesTag = selectedTags.size === 0 || outcome.tags.some(t => selectedTags.has(t));
-          const matchesPriority = selectedPriority.size === 0 || selectedPriority.has(outcome.priority);
-          return matchesTag && matchesPriority;
+          return matchesTag;
       });
   };
 
@@ -805,24 +785,6 @@ const VerticalPage: React.FC = () => {
                           ))}
                       </ul>
                   </div>
-
-                  {/* Priority Filter */}
-                   <div>
-                      <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Criticality</h4>
-                      <div className="flex flex-wrap gap-2">
-                          {['CRITICAL', 'HIGH', 'MEDIUM'].map((p) => (
-                              <button
-                                key={p}
-                                onClick={() => togglePriority(p as Priority)}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all ${selectedPriority.has(p as Priority) 
-                                    ? 'bg-bodhan-orange text-gray-900 border-bodhan-orange' 
-                                    : 'bg-white text-gray-600 border-black/10 hover:border-black/20'}`}
-                              >
-                                  {p}
-                              </button>
-                          ))}
-                      </div>
-                   </div>
 
                   {/* Tag Filter */}
                    <div>
