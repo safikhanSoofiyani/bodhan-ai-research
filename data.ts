@@ -80,7 +80,7 @@ export const GRAND_CHALLENGES: GrandChallenge[] = [
   {
     id: "on-device-systems",
     vertical: "Grand Challenge",
-    title: "On-device Systems",
+    title: "On-Device Systems for AI in Education",
     description: "",
     theme: "purple",
     iconName: "Target"

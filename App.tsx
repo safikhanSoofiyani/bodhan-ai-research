@@ -268,7 +268,7 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('vision')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Vision</button>
             {/* <button onClick={() => scrollToSection('principles')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Sutras</button> */}
             <button onClick={() => scrollToSection('research')} className="text-gray-700 hover:text-gray-900 text-lg font-medium transition-colors">Research</button>
-            <Button variant="primary" href="mailto:research@bodhan.ai" className="px-6 py-2">
+            <Button variant="primary" href="https://bodhan.ai/#/careers" className="px-6 py-2">
               Join Us
             </Button>
           </div>
@@ -322,9 +322,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-gray-900 font-semibold mb-6">Connect</h4>
             <ul className="space-y-4 text-gray-600 text-sm">
-              <li><a href="#" className="hover:text-bodhan-orange transition-colors">Twitter</a></li>
-              <li><a href="#" className="hover:text-bodhan-orange transition-colors">LinkedIn</a></li>
-              <li><a href="mailto:contact@bodhan.ai" className="hover:text-bodhan-orange transition-colors">Contact</a></li>
+              <li><a href="https://x.com/Bodhan_AI" className="hover:text-bodhan-orange transition-colors">Twitter</a></li>
+              <li><a href="https://www.linkedin.com/company/bodhan-ai" className="hover:text-bodhan-orange transition-colors">LinkedIn</a></li>
+              <li><a href="https://bodhan.ai/#/contact" className="hover:text-bodhan-orange transition-colors">Contact</a></li>
             </ul>
           </div>
           <div>
