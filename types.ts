@@ -1,5 +1,18 @@
 export type Priority = 'HIGH' | 'MEDIUM' | 'CRITICAL' | '';
-export type VerticalTheme = 'orange' | 'teal' | 'purple' | 'yellow' | 'blue' | 'red' | 'indigo' | 'green';
+export type VerticalTheme =
+  | 'orange'
+  | 'teal'
+  | 'purple'
+  | 'yellow'
+  | 'blue'
+  | 'red'
+  | 'indigo'
+  | 'green'
+  | 'aqua'
+  | 'cyan'
+  | 'magenta'
+  | 'amber'
+  | 'rose';
 
 export interface ResearchOutcome {
   id: string; // e.g., "O1"

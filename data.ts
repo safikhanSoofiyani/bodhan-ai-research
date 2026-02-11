@@ -81,7 +81,7 @@ export const GRAND_CHALLENGES: GrandChallenge[] = [
     id: "on-device-systems",
     vertical: "Grand Challenge",
     title: "On-device Systems",
-    description: "Designing private, offline-first AI systems that run reliably on low-end devices while remaining accurate, safe, and affordable at scale.",
+    description: "Designing offline-first and low-bandwidth AI systems that run reliably on low-end devices while remaining accurate, safe, and affordable at scale.",
     theme: "purple",
     iconName: "Target"
   }
@@ -821,7 +821,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     shortTitle: "OCR",
     description: "Developing robust OCR systems that accurately recognize handwritten and printed educational content across Indian scripts, including student worksheets, textbooks, and complex STEM layouts and notation.",
     iconName: "ScanText",
-    theme: 'yellow',
+    theme: 'purple',
     problemCount: 30,
     tags: ["Vision"],
     problems: [
@@ -1071,7 +1071,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     shortTitle: "MT",
     description: "Breaking language barriers in education through high quality, format preserving translation of STEM textbooks, learning materials, and digital content into Indian languages.",
     iconName: "Languages",
-    theme: 'blue',
+    theme: 'yellow',
     problemCount: 13,
     tags: ["Text", "Speech"],
     problems: [
@@ -1202,7 +1202,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     shortTitle: "LLM",
     description: "Building education first multilingual Edu LLMs grounded in learning science, Socratic pedagogy, formative feedback, and conceptual reasoning to support deep understanding across Indian languages.",
     iconName: "Brain",
-    theme: 'purple',
+    theme: 'blue',
     problemCount: 32,
     tags: ["Text"],
     problems: [
@@ -1737,7 +1737,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     shortTitle: "Multi",
     description: "Developing multimodal generation systems that create accurate, curriculum-aligned images, diagrams, animations, and videos for educational and STEM learning across Indian languages.",
     iconName: "Brain",
-    theme: 'green',
+    theme: 'indigo',
     problemCount: 13,
     tags: ["Text", "Vision", "Speech"],
     problems: [
@@ -1873,7 +1873,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     id: "agent",
     title: "Tools & Agentic Systems",
     shortTitle: "Agents",
-    description: "Building robust and reliable RAG systems and Agents for education applications.",
+    description: "Building intelligent educational tools and agentic AI systems that can plan, reason, and take guided actions to support learning and teaching, including problem solving, personalized practice, and content assistance, while remaining aligned with pedagogy, curriculum goals, and strong safety guardrails.",
     iconName: "Brain",
     theme: 'green',
     problemCount: 14,

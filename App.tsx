@@ -25,6 +25,11 @@ const THEME_COLORS: Record<VerticalTheme, string> = {
   red: 'text-bodhan-red',
   indigo: 'text-bodhan-indigo',
   green: 'text-bodhan-green',
+  aqua: 'text-bodhan-aqua',
+  cyan: 'text-bodhan-cyan',
+  magenta: 'text-bodhan-magenta',
+  amber: 'text-bodhan-amber',
+  rose: 'text-bodhan-rose',
 };
 
 const THEME_BG_HOVER: Record<VerticalTheme, string> = {
@@ -36,6 +41,11 @@ const THEME_BG_HOVER: Record<VerticalTheme, string> = {
   red: 'hover:border-bodhan-red/50',
   indigo: 'hover:border-bodhan-indigo/50',
   green: 'hover:border-bodhan-green/50',
+  aqua: 'hover:border-bodhan-aqua/50',
+  cyan: 'hover:border-bodhan-cyan/50',
+  magenta: 'hover:border-bodhan-magenta/50',
+  amber: 'hover:border-bodhan-amber/50',
+  rose: 'hover:border-bodhan-rose/50',
 };
 
 const THEME_SOFT_BG: Record<VerticalTheme, string> = {
@@ -47,6 +57,11 @@ const THEME_SOFT_BG: Record<VerticalTheme, string> = {
   red: 'bg-bodhan-red/10 text-bodhan-red',
   indigo: 'bg-bodhan-indigo/10 text-bodhan-indigo',
   green: 'bg-bodhan-green/10 text-bodhan-green',
+  aqua: 'bg-bodhan-aqua/10 text-bodhan-aqua',
+  cyan: 'bg-bodhan-cyan/10 text-bodhan-cyan',
+  magenta: 'bg-bodhan-magenta/10 text-bodhan-magenta',
+  amber: 'bg-bodhan-amber/10 text-bodhan-amber',
+  rose: 'bg-bodhan-rose/10 text-bodhan-rose',
 };
 
 const THEME_BORDER: Record<VerticalTheme, string> = {
@@ -58,6 +73,11 @@ const THEME_BORDER: Record<VerticalTheme, string> = {
   red: 'border-bodhan-red/30',
   indigo: 'border-bodhan-indigo/30',
   green: 'border-bodhan-green/30',
+  aqua: 'border-bodhan-aqua/30',
+  cyan: 'border-bodhan-cyan/30',
+  magenta: 'border-bodhan-magenta/30',
+  amber: 'border-bodhan-amber/30',
+  rose: 'border-bodhan-rose/30',
 };
 
 const CHALLENGE_ICONS: Record<string, React.ElementType> = {
@@ -652,7 +672,7 @@ const AreaAccordion: React.FC<{
                                  
                                  {/* ID Badge */}
                                  <div className="flex-shrink-0">
-                                     <span className={`flex items-center justify-center w-8 h-8 rounded text-sm font-bold bg-${verticalTheme === 'orange' ? 'orange' : verticalTheme}-500 text-white`}>
+                                     <span className={`flex items-center justify-center w-12 h-12 rounded text-base font-bold bg-${verticalTheme === 'orange' ? 'orange' : verticalTheme}-500 text-white`}>
                                          {outcome.id}
                                      </span>
                                  </div>
@@ -670,7 +690,7 @@ const AreaAccordion: React.FC<{
                                                  </span>
                                              ))}
                                          </div>
-                                         <Button variant="outline" href={`mailto:research@bodhan.ai?subject=${outcome.id}`} className="!py-1.5 !px-4 !text-xs !rounded-full group-hover:bg-white group-hover:text-gray-900 group-hover:border-black">
+                                         <Button variant="outline" href={`mailto:research@bodhan.ai?subject=${outcome.id}`} className="!py-1.5 !px-4 !text-xs !rounded-full border border-black group-hover:bg-white group-hover:text-gray-900 group-hover:border-black">
                                              Reach Out <ArrowRight size={10} className="ml-1" />
                                          </Button>
                                      </div>
