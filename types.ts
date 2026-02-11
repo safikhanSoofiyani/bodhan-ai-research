@@ -1,4 +1,4 @@
-export type Priority = 'HIGH' | 'MEDIUM' | 'CRITICAL';
+export type Priority = 'HIGH' | 'MEDIUM' | 'CRITICAL' | '';
 export type VerticalTheme = 'orange' | 'teal' | 'purple' | 'yellow' | 'blue' | 'red' | 'indigo' | 'green';
 
 export interface ResearchOutcome {
