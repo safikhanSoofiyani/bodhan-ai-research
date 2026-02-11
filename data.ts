@@ -1873,7 +1873,7 @@ export const RESEARCH_VERTICALS: ResearchVertical[] = [
     id: "agent",
     title: "Tools & Agentic Systems",
     shortTitle: "Agents",
-    description: "Building intelligent educational tools and agentic AI systems that can plan, reason, and take guided actions to support learning and teaching, including problem solving, personalized practice, and content assistance, while remaining aligned with pedagogy, curriculum goals, and strong safety guardrails.",
+    description: "Building agentic AI systems that can plan, reason, and take guided actions to support learning and teaching, while remaining aligned with pedagogy, curriculum goals, and strong safety guardrails.",
     iconName: "Brain",
     theme: 'green',
     problemCount: 14,
